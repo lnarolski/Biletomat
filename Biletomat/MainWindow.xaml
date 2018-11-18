@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Biletomat"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Biletomat" Height="1080" Width="1920" WindowState="Maximized" WindowStyle="None">
+    <Grid Width="1920" Height="1080" MinWidth="1920" MinHeight="1080">
+        <Button Name="biletJednorazowyButton" Margin="86,510,892,344">
+            <TextBlock FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
+                BILET JEDNORAZOWY
+            </TextBlock>
+        </Button>
+        <Button Name="biletJednorazowyMetropolitalnyButton" Margin="86,790,892,64">
+            <TextBlock FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="None" TextAlignment="Center">
+                BILET JEDNORAZOWY<LineBreak/>METROPOLITALNY
+            </TextBlock>
+        </Button>
     </Grid>
 </Window>
