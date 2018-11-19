@@ -17,5 +17,10 @@
                 BILET JEDNORAZOWY<LineBreak/>METROPOLITALNY
             </TextBlock>
         </Button>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="506" Margin="1133,510,0,0" Stroke="Black" VerticalAlignment="Top" Width="685"/>
+        <TextBlock FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="1133,552,85,432"><Run Text="BILET OKRESOWY"/></TextBlock>
+        <TextBlock FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="1133,896,102,64" Height="120" Width="685">Włóż kartę<LineBreak/>do czytnika</TextBlock>
+        <Image HorizontalAlignment="Center" Height="238" Margin="1160,653,75,0" VerticalAlignment="Top" Width="685" Source="images/contactless.png"/>
+        <TextBlock HorizontalAlignment="Left" Margin="86,64,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="210" Width="616" Name="czas" TextAlignment="Center" FontSize="72"/>
     </Grid>
 </Window>
