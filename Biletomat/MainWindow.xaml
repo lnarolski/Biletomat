@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="Biletomat" Height="1080" Width="1920" WindowState="Maximized" WindowStyle="None">
     <Grid Width="1920" Height="1080" MinWidth="1920" MinHeight="1080">
-        <Button Name="biletJednorazowyButton" Margin="86,510,892,344">
+        <Button Name="biletJednorazowyButton" Margin="86,510,892,344" Click="biletJednorazowyButton_Click">
             <TextBlock FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
                 BILET JEDNORAZOWY
             </TextBlock>
         </Button>
-        <Button Name="biletJednorazowyMetropolitalnyButton" Margin="86,790,892,64">
+        <Button Name="biletJednorazowyMetropolitalnyButton" Margin="86,790,892,64" Click="biletJednorazowyMetropolitalnyButton_Click">
             <TextBlock FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="None" TextAlignment="Center">
                 BILET JEDNORAZOWY<LineBreak/>METROPOLITALNY
             </TextBlock>
@@ -21,6 +21,14 @@
         <TextBlock FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="1133,552,85,432"><Run Text="BILET OKRESOWY"/></TextBlock>
         <TextBlock FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="1133,896,102,64" Height="120" Width="685">Włóż kartę<LineBreak/>do czytnika</TextBlock>
         <Image HorizontalAlignment="Center" Height="238" Margin="1160,653,75,0" VerticalAlignment="Top" Width="685" Source="images/contactless.png"/>
-        <TextBlock HorizontalAlignment="Left" Margin="86,64,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="210" Width="616" Name="czas" TextAlignment="Center" FontSize="72"/>
+        <TextBlock HorizontalAlignment="Left" Margin="86,253,0,0" TextWrapping="Wrap" Text="ZEGAR" VerticalAlignment="Top" Height="186" Width="523" Name="czas" TextAlignment="Center" FontSize="50"/>
+        <Image HorizontalAlignment="Left" Height="254" Margin="721,64,0,0" VerticalAlignment="Top" Width="564" Source="images/zkm_logo.jpg"/>
+        <Button Name="pomocGlosowa" Margin="1384,64,102,656">
+            <StackPanel>
+                <TextBlock FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Width="372" TextAlignment="Center">Pomoc<LineBreak/>Głosowa</TextBlock>
+                <Image Source="images/speaker.png" Height="200" Width="367" />
+            </StackPanel>
+        </Button>
+        <Button Name="taryfaButton" Click="taryfaButton_Click" Content="TARYFA" HorizontalAlignment="Left" Margin="86,64,0,0" VerticalAlignment="Top" Width="523" Height="112" FontSize="48"/>
     </Grid>
 </Window>
