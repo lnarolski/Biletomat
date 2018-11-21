@@ -14,7 +14,7 @@
                 <Canvas.Background>
                     <VisualBrush  >
                         <VisualBrush.Visual>
-                            <Image Name="Obraz" Source="images/taryfa_mzkg.bmp" Stretch="None" />
+                            <Image Name="Obraz" Source="images/taryfa_mzkg.bmp" Width="1500" />
                         </VisualBrush.Visual>
                     </VisualBrush>
                 </Canvas.Background>
