@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Speech.Synthesis;
+
 
 namespace Biletomat
 {
@@ -25,6 +27,7 @@ namespace Biletomat
     {
         private Timer zegar;
         private CultureInfo culture_info;
+        private SpeechSynthesizer reader;
 
         public MainWindow()
         {
@@ -36,7 +39,7 @@ namespace Biletomat
             zegar.Elapsed += zegar_tick;
             zegar.Start();
 
-            //SpeechSynthesizer reader = new SpeechSynthesizer();
+            reader = new SpeechSynthesizer();
         }
 
         private void zegar_tick(object sender, EventArgs e)
@@ -60,6 +63,16 @@ namespace Biletomat
         {
             TaryfaWindow okno = new TaryfaWindow();
             okno.Show();
+        }
+
+        private void pomocGlosowa_Click(object sender, RoutedEventArgs e)
+        {
+            reader.SpeakAsync("Jestem gadającym biletomatem! HUEHUEHUE");
+        }
+
+        private void biletOkresowyButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

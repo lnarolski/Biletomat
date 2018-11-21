@@ -17,13 +17,18 @@
                 BILET JEDNORAZOWY<LineBreak/>METROPOLITALNY
             </TextBlock>
         </Button>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="506" Margin="1133,510,0,0" Stroke="Black" VerticalAlignment="Top" Width="685"/>
-        <TextBlock FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="1133,552,85,432"><Run Text="BILET OKRESOWY"/></TextBlock>
-        <TextBlock FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="1133,896,102,64" Height="120" Width="685">Włóż kartę<LineBreak/>do czytnika</TextBlock>
-        <Image HorizontalAlignment="Center" Height="238" Margin="1160,653,75,0" VerticalAlignment="Top" Width="685" Source="images/contactless.png"/>
+        <Button Name="biletOkresowyButton" HorizontalAlignment="Left" Height="506" Margin="1133,510,0,0"  VerticalAlignment="Top" Width="685" Click="biletOkresowyButton_Click">
+            <StackPanel>
+                <TextBlock FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ><Run Text="BILET OKRESOWY"/></TextBlock>
+                <Image HorizontalAlignment="Center" Height="238" VerticalAlignment="Top" Width="685" Source="images/contactless.png"/>
+                <TextBlock FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Height="120" Width="685">Włóż kartę<LineBreak/>do czytnika</TextBlock>
+                
+            </StackPanel>
+        </Button>
+        
         <TextBlock HorizontalAlignment="Left" Margin="86,253,0,0" TextWrapping="Wrap" Text="ZEGAR" VerticalAlignment="Top" Height="186" Width="523" Name="czas" TextAlignment="Center" FontSize="50"/>
         <Image HorizontalAlignment="Left" Height="254" Margin="721,64,0,0" VerticalAlignment="Top" Width="564" Source="images/zkm_logo.jpg"/>
-        <Button Name="pomocGlosowa" Margin="1384,64,102,656">
+        <Button Name="pomocGlosowa" Margin="1384,64,102,656" Click="pomocGlosowa_Click">
             <StackPanel>
                 <TextBlock FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Width="372" TextAlignment="Center">Pomoc<LineBreak/>Głosowa</TextBlock>
                 <Image Source="images/speaker.png" Height="200" Width="367" />

@@ -28,5 +28,17 @@ namespace Biletomat
         {
             this.Close();
         }
+
+        private void taryfaZKMButton_Click(object sender, RoutedEventArgs e)
+        {
+            taryfa_zkm okno = new taryfa_zkm();
+            okno.Show();
+        }
+
+        private void taryfaMZKGButton_Click(object sender, RoutedEventArgs e)
+        {
+            taryfa_mzkg okno = new taryfa_mzkg();
+            okno.Show();
+        }
     }
 }
