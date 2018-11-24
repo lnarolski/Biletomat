@@ -59,6 +59,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="definicje_zmiennych.cs" />
+    <Compile Include="PodsumowanieWindow.xaml.cs">
+      <DependentUpon>PodsumowanieWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TaryfaWindow.xaml.cs">
       <DependentUpon>TaryfaWindow.xaml</DependentUpon>
     </Compile>
@@ -94,6 +97,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PodsumowanieWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TaryfaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -37,25 +37,6 @@ namespace Biletomat
         {
 
         }
-
-        private void Bilet1_normalny_odejmij_Click(object sender, RoutedEventArgs e)
-        {
-            if (lista_biletow.bilet1_normalny < 1)
-                return;
-            --lista_biletow.bilet1_normalny;
-            Bilet1_liczba.Text = lista_biletow.bilet1_normalny.ToString();
-            sumuj_ceny();
-        }
-
-        private void Bilet1_normalny_dodaj_Click(object sender, RoutedEventArgs e)
-        {
-            if (lista_biletow.bilet1_normalny > 99)
-                return;
-            ++lista_biletow.bilet1_normalny;
-            Bilet1_liczba.Text = lista_biletow.bilet1_normalny.ToString();
-            sumuj_ceny();
-        }
-
         private void sumuj_ceny()
         {
             const double bilet1_normalny_cena = 3.20;
@@ -73,6 +54,156 @@ namespace Biletomat
                 KupButton.IsEnabled = true;
             else
                 KupButton.IsEnabled = false;
+        }
+
+        private void Bilet1_normalny_odejmij_Click(object sender, RoutedEventArgs e)
+        {
+            if (lista_biletow.bilet1_normalny < 1)
+                return;
+            --lista_biletow.bilet1_normalny;
+            Bilet1_normalny_liczba.Text = lista_biletow.bilet1_normalny.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet1_normalny_dodaj_Click(object sender, RoutedEventArgs e)
+        {
+            if (lista_biletow.bilet1_normalny > 99)
+                return;
+            ++lista_biletow.bilet1_normalny;
+            Bilet1_normalny_liczba.Text = lista_biletow.bilet1_normalny.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet1_ulgowy_odejmij_Click(object sender, RoutedEventArgs e)
+        {
+            if (lista_biletow.bilet1_ulgowy < 1)
+                return;
+            --lista_biletow.bilet1_ulgowy;
+            Bilet1_ulgowy_liczba.Text = lista_biletow.bilet1_ulgowy.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet1_ulgowy_dodaj_Click(object sender, RoutedEventArgs e)
+        {
+            if (lista_biletow.bilet1_ulgowy > 99)
+                return;
+            ++lista_biletow.bilet1_ulgowy;
+            Bilet1_ulgowy_liczba.Text = lista_biletow.bilet1_ulgowy.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet2_normalny_odejmij_Click(object sender, RoutedEventArgs e)
+        {
+            if (lista_biletow.bilet2_normalny < 1)
+                return;
+            --lista_biletow.bilet2_normalny;
+            Bilet2_normalny_liczba.Text = lista_biletow.bilet2_normalny.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet2_normalny_dodaj_Click(object sender, RoutedEventArgs e)
+        {
+            if (lista_biletow.bilet2_normalny > 99)
+                return;
+            ++lista_biletow.bilet2_normalny;
+            Bilet2_normalny_liczba.Text = lista_biletow.bilet2_normalny.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet2_ulgowy_odejmij_Click(object sender, RoutedEventArgs e)
+        {
+            if (lista_biletow.bilet2_ulgowy < 1)
+                return;
+            --lista_biletow.bilet2_ulgowy;
+            Bilet2_ulgowy_liczba.Text = lista_biletow.bilet2_ulgowy.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet2_ulgowy_dodaj_Click(object sender, RoutedEventArgs e)
+        {
+            if (lista_biletow.bilet2_ulgowy > 99)
+                return;
+            ++lista_biletow.bilet2_ulgowy;
+            Bilet2_ulgowy_liczba.Text = lista_biletow.bilet2_ulgowy.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet3_normalny_odejmij_Click(object sender, RoutedEventArgs e)
+        {
+            if (lista_biletow.bilet3_normalny < 1)
+                return;
+            --lista_biletow.bilet3_normalny;
+            Bilet3_normalny_liczba.Text = lista_biletow.bilet3_normalny.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet3_normalny_dodaj_Click(object sender, RoutedEventArgs e)
+        {
+            if (lista_biletow.bilet3_normalny > 99)
+                return;
+            ++lista_biletow.bilet3_normalny;
+            Bilet3_normalny_liczba.Text = lista_biletow.bilet3_normalny.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet3_ulgowy_odejmij_Click(object sender, RoutedEventArgs e)
+        {
+            if (lista_biletow.bilet3_ulgowy < 1)
+                return;
+            --lista_biletow.bilet3_ulgowy;
+            Bilet3_ulgowy_liczba.Text = lista_biletow.bilet3_ulgowy.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet3_ulgowy_dodaj_Click(object sender, RoutedEventArgs e)
+        {
+            if (lista_biletow.bilet3_ulgowy > 99)
+                return;
+            ++lista_biletow.bilet3_ulgowy;
+            Bilet3_ulgowy_liczba.Text = lista_biletow.bilet3_ulgowy.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet4_normalny_odejmij_Click(object sender, RoutedEventArgs e)
+        {
+            if (lista_biletow.bilet4_normalny < 1)
+                return;
+            --lista_biletow.bilet4_normalny;
+            Bilet4_normalny_liczba.Text = lista_biletow.bilet4_normalny.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet4_normalny_dodaj_Click(object sender, RoutedEventArgs e)
+        {
+            if (lista_biletow.bilet4_normalny > 99)
+                return;
+            ++lista_biletow.bilet4_normalny;
+            Bilet4_normalny_liczba.Text = lista_biletow.bilet4_normalny.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet4_ulgowy_odejmij_Click(object sender, RoutedEventArgs e)
+        {
+            if (lista_biletow.bilet4_ulgowy < 1)
+                return;
+            --lista_biletow.bilet4_ulgowy;
+            Bilet4_ulgowy_liczba.Text = lista_biletow.bilet4_ulgowy.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet4_ulgowy_dodaj_Click(object sender, RoutedEventArgs e)
+        {
+            if (lista_biletow.bilet4_ulgowy > 99)
+                return;
+            ++lista_biletow.bilet4_ulgowy;
+            Bilet4_ulgowy_liczba.Text = lista_biletow.bilet4_ulgowy.ToString();
+            sumuj_ceny();
+        }
+
+        private void KupButton_Click(object sender, RoutedEventArgs e)
+        {
+            PodsumowanieWindow okno = new PodsumowanieWindow();
+            okno.Show();
         }
     }
 }
