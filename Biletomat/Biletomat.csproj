@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="definicje_zmiennych.cs" />
     <Compile Include="TaryfaWindow.xaml.cs">
       <DependentUpon>TaryfaWindow.xaml</DependentUpon>
     </Compile>
