@@ -62,6 +62,9 @@
     <Compile Include="PodsumowanieWindow.xaml.cs">
       <DependentUpon>PodsumowanieWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SymulatoPlatnosciWindow.xaml.cs">
+      <DependentUpon>SymulatoPlatnosciWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TaryfaWindow.xaml.cs">
       <DependentUpon>TaryfaWindow.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PodsumowanieWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SymulatoPlatnosciWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

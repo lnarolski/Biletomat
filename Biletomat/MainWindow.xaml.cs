@@ -40,6 +40,8 @@ namespace Biletomat
             zegar.Start();
 
             reader = new SpeechSynthesizer();
+            var voices = reader.GetInstalledVoices(culture_info);
+            reader.SelectVoice(voices[0].VoiceInfo.Name);
         }
 
         private void zegar_tick(object sender, EventArgs e)
