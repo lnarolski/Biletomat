@@ -62,6 +62,9 @@
     <Compile Include="DrukowanieBiletowWIndow.xaml.cs">
       <DependentUpon>DrukowanieBiletowWIndow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="KomunikatWindow.xaml.cs">
+      <DependentUpon>KomunikatWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PodsumowanieWindow.xaml.cs">
       <DependentUpon>PodsumowanieWindow.xaml</DependentUpon>
     </Compile>
@@ -86,6 +89,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DrukowanieBiletowWIndow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KomunikatWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

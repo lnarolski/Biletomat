@@ -144,6 +144,8 @@ namespace Biletomat
         private void SymulatorButton_Click(object sender, RoutedEventArgs e)
         {
             SymulatoPlatnosciWindow okno = new SymulatoPlatnosciWindow();
+            okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            okno.Owner = Window.GetWindow(this);
             okno.zaplacona_kwota += value => zaplacona_kwota = value;
             okno.zaplacono += value => zaplacono = value;
             okno.zaplacono_karta += value => platnosc_karta = value;
@@ -157,8 +159,14 @@ namespace Biletomat
                 return;
             if (platnosc_karta)
             {
+                status_biletomatu.rodzaj_platnosci = wybrana_platnosc.KARTA_PLATNICZA;
                 suma_zaplacono = suma;
                 aktualizuj_kwoty();
+                DrukowanieBiletowWIndow okno = new DrukowanieBiletowWIndow(bilety_jednorazowe.liczba_biletow());
+                okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                okno.Owner = Window.GetWindow(this);
+                okno.Closed += new EventHandler(Zamkniecie_okna_drukowania_biletow);
+                okno.ShowDialog();
             }
             else
             {
@@ -166,9 +174,23 @@ namespace Biletomat
                 aktualizuj_kwoty();
                 if (suma_zaplacono >= suma)
                 {
-
+                    if (suma_zaplacono == suma)
+                        status_biletomatu.rodzaj_platnosci = wybrana_platnosc.GOTOWKA_BEZ_RESZTY;
+                    else
+                        status_biletomatu.rodzaj_platnosci = wybrana_platnosc.GOTOWKA;
+                    DrukowanieBiletowWIndow okno = new DrukowanieBiletowWIndow(bilety_jednorazowe.liczba_biletow());
+                    okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                    okno.Owner = Window.GetWindow(this);
+                    okno.Closed += new EventHandler(Zamkniecie_okna_drukowania_biletow);
+                    okno.ShowDialog();
                 }
             }
+        }
+
+        private void Zamkniecie_okna_drukowania_biletow(object sender, EventArgs e)
+        {
+            if (status_biletomatu.status_zakupu == status.WYDRUKOWANO_BILETY)
+                this.Close();
         }
 
         private void aktualizuj_kwoty()

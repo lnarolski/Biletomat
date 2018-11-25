@@ -32,6 +32,7 @@ namespace Biletomat
 
         private void WsteczButton_Click(object sender, RoutedEventArgs e)
         {
+            status_biletomatu.wyczysc();
             this.Close();
         }
 
@@ -205,7 +206,14 @@ namespace Biletomat
         private void KupButton_Click(object sender, RoutedEventArgs e)
         {
             PodsumowanieWindow okno = new PodsumowanieWindow(suma, rodzaj_biletu.BILET_JEDNORAZOWY);
+            okno.Closed += new EventHandler(Zamkniecie_okna_podsumowania);
             okno.Show();
+        }
+
+        private void Zamkniecie_okna_podsumowania(object sender, EventArgs e)
+        {
+            if (status_biletomatu.status_zakupu == status.WYDRUKOWANO_BILETY)
+                this.Close();
         }
     }
 }

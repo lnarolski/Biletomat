@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Timers;
 using definicje_zmiennych;
 
 namespace Biletomat
@@ -20,9 +21,52 @@ namespace Biletomat
     /// </summary>
     public partial class DrukowanieBiletowWIndow : Window
     {
-        public DrukowanieBiletowWIndow()
+        Timer timer;
+        int liczba_biletow_do_wydrukowania;
+        int liczba_biletow;
+        int liczba_sekund;
+        DateTime pozostaly_czas;
+
+        public DrukowanieBiletowWIndow(int liczba_biletow)
         {
             InitializeComponent();
+
+            this.liczba_biletow_do_wydrukowania = liczba_biletow;
+            this.liczba_sekund = 0;
+            this.liczba_biletow = liczba_biletow;
+
+            Pasek.Value = 0;
+            pozostaly_czas = new DateTime();
+            pozostaly_czas = pozostaly_czas.AddSeconds(3 * liczba_biletow);
+            Czas_drukowania_text.Text = pozostaly_czas.ToString("mm:ss");
+
+            timer = new Timer(1000);
+            timer.Elapsed += AktualizujEkran;
+            timer.AutoReset = true;
+            timer.Enabled = true;
+            timer.Start();
+        }
+
+        private void AktualizujEkran(Object source, ElapsedEventArgs e)
+        {
+            ++liczba_sekund;
+            if (liczba_sekund == 3)
+            {
+                Dispatcher.BeginInvoke(new Action(() => { Pasek.Value += (int)(100 / liczba_biletow); }));
+                liczba_sekund = 0;
+            }
+            if (pozostaly_czas.Second > 1)
+            {
+                pozostaly_czas = pozostaly_czas.AddSeconds(-1);
+                Dispatcher.BeginInvoke(new Action(() => { Czas_drukowania_text.Text = pozostaly_czas.ToString("mm:ss"); }));
+            }
+            else
+            {
+                Dispatcher.BeginInvoke(new Action(() => { Czas_drukowania_text.Text = "00:00"; }));
+                Dispatcher.BeginInvoke(new Action(() => { Pasek.Value = 100; }));
+                Dispatcher.BeginInvoke(new Action(() => { this.Close(); }));
+                status_biletomatu.status_zakupu = status.WYDRUKOWANO_BILETY;
+            }
         }
     }
 }

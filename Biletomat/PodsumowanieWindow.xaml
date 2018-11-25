@@ -74,6 +74,6 @@
                 </StackPanel>
             </Grid>
         </Grid>
-        <TextBlock Name="Suma_text" Grid.Row="2" TextWrapping="Wrap" Text=""  Width="1268" TextAlignment="Center" FontSize="48" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Rectangle Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Window>

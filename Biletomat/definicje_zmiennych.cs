@@ -12,6 +12,32 @@
         KARTA
     };
 
+    public enum status
+    {
+        WYDRUKOWANO_BILETY,
+        BRAK,
+    }
+
+    public enum wybrana_platnosc
+    {
+        GOTOWKA,
+        GOTOWKA_BEZ_RESZTY,
+        KARTA_PLATNICZA,
+        BRAK,
+    }
+
+    public static class status_biletomatu
+    {
+        public static status status_zakupu;
+        public static wybrana_platnosc rodzaj_platnosci;
+
+        public static void wyczysc()
+        {
+            status_zakupu = status.BRAK;
+            rodzaj_platnosci = wybrana_platnosc.BRAK;
+        }
+    }
+
     public static class bilety_jednorazowe
     {
         public static int bilet1_normalny;

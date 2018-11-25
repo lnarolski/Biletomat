@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Speech.Synthesis;
+using definicje_zmiennych;
 
 
 namespace Biletomat
@@ -42,6 +43,8 @@ namespace Biletomat
             reader = new SpeechSynthesizer();
             var voices = reader.GetInstalledVoices(culture_info);
             reader.SelectVoice(voices[0].VoiceInfo.Name);
+            
+            status_biletomatu.wyczysc();
         }
 
         private void zegar_tick(object sender, EventArgs e)
@@ -52,7 +55,21 @@ namespace Biletomat
         private void biletJednorazowyButton_Click(object sender, RoutedEventArgs e)
         {
             BiletJednorazowyWindow okno = new BiletJednorazowyWindow();
+            okno.Closed += new EventHandler(Zamkniecie_okna_biletJednorazowy);
             okno.Show();
+        }
+
+        private void Zamkniecie_okna_biletJednorazowy(object sender, EventArgs e)
+        {
+            if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.BRAK)
+                status_biletomatu.wyczysc(); //GDZIEŚ JEST NADPISYWANA WARTOŚĆ status_biletomatu.status_zakupu -> Znaleźć w przyszłości
+            if (status_biletomatu.status_zakupu == status.WYDRUKOWANO_BILETY)
+            {
+                KomunikatWindow okno = new KomunikatWindow();
+                okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                okno.Owner = Window.GetWindow(this);
+                okno.ShowDialog();
+            }
         }
 
         private void biletJednorazowyMetropolitalnyButton_Click(object sender, RoutedEventArgs e)
