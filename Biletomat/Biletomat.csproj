@@ -59,6 +59,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="definicje_zmiennych.cs" />
+    <Compile Include="DrukowanieBiletowWIndow.xaml.cs">
+      <DependentUpon>DrukowanieBiletowWIndow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PodsumowanieWindow.xaml.cs">
       <DependentUpon>PodsumowanieWindow.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BiletJednorazowyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DrukowanieBiletowWIndow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,6 +185,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\taryfa_zkm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\pieniadze.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\karta_platnicza.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

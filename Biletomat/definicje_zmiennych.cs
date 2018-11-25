@@ -34,5 +34,10 @@
             bilet4_normalny = 0;
             bilet4_ulgowy = 0;
         }
+
+        public static int liczba_biletow()
+        {
+            return bilet1_normalny + bilet1_ulgowy + bilet2_normalny + bilet2_ulgowy + bilet3_normalny + bilet3_ulgowy + bilet4_normalny + bilet4_ulgowy;
+        }
     }
 }

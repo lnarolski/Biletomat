@@ -31,9 +31,49 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="1" Grid.Column="1">
-                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="513*" />
+                    <RowDefinition Height="199*" />
+                </Grid.RowDefinitions>
+                <StackPanel Name="Lista_biletow" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="Lista biletów:" FontSize="40"/>
+                </StackPanel>
+                <Border Grid.Row="0" Grid.Column="1" Margin="5" BorderBrush="#FF0097FF" BorderThickness="5">
+                    <Grid Margin="20,50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="133*"/>
+                            <ColumnDefinition Width="674*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Image Grid.Column="0" Grid.Row="0" Source="Images/pieniadze.gif"/>
+                        <Image Grid.Column="0" Grid.Row="1" Source="Images/karta_platnicza.png"/>
+                        <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="GOTÓWKA"  FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" />
+                            <TextBlock Text="Aby zapłacić gotówką postępuj zgodnie z opisem na automacie wrzutowym." FontSize="24" TextWrapping="Wrap" TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="KARTA PŁATNICZA"  FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" />
+                            <TextBlock Text="Aby zapłacić kartą płatniczą postępuj zgodnie z poleceniami terminala." FontSize="24" TextWrapping="Wrap" TextAlignment="Center" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <StackPanel Grid.Column="1" Grid.Row="1" Margin="5,0" VerticalAlignment="Center">
+                    <TextBlock Name="Do_zaplaty_text" Text="DO ZAPŁATY: 0,00 zł" FontSize="36" FontWeight="Bold" TextAlignment="Right" Foreground="#FF0097FF" />
+                    <TextBlock Name="Wplacono_text" Text="Wpłacono: 0,00 zł" TextAlignment="Right" FontSize="36" />
+                    <Canvas HorizontalAlignment="Right" Margin="0,0,200,0">
+                        <Line X1="0" X2="0" Y1="0" Y2="5" StrokeThickness="400" Stroke="Black"/>
+                    </Canvas>
+                    <TextBlock Name="Pozostalo_text" Text="POZOSTAŁO: 0,00 zł" FontWeight="Bold" FontSize="36" TextAlignment="Right" />
+                </StackPanel>
             </Grid>
         </Grid>
-        <TextBlock Name="Suma_text" Grid.Row="2" TextWrapping="Wrap" Text="Razem: 0,00 zł"  Width="1268" TextAlignment="Center" FontSize="48" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Name="Suma_text" Grid.Row="2" TextWrapping="Wrap" Text=""  Width="1268" TextAlignment="Center" FontSize="48" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Window>

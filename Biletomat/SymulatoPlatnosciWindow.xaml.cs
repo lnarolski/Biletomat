@@ -56,7 +56,7 @@ namespace Biletomat
                 }
                 catch (Exception)
                 {
-
+                    zaplacono(false);
                     zaplacona_kwota(0.0);
                 }
             }
