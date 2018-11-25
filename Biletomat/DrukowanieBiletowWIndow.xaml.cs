@@ -24,7 +24,6 @@ namespace Biletomat
         Timer timer;
         int liczba_biletow_do_wydrukowania;
         int liczba_biletow;
-        int liczba_sekund;
         DateTime pozostaly_czas;
 
         public DrukowanieBiletowWIndow(int liczba_biletow)
@@ -32,8 +31,12 @@ namespace Biletomat
             InitializeComponent();
 
             this.liczba_biletow_do_wydrukowania = liczba_biletow;
-            this.liczba_sekund = 0;
             this.liczba_biletow = liczba_biletow;
+
+            if (status_biletomatu.wybrany_bilet == rodzaj_biletu.BILET_JEDNORAZOWY || status_biletomatu.wybrany_bilet == rodzaj_biletu.BILET_JEDNORAZOWY_METROPOLITARNY)
+                Opis.Text = "DRUKOWANIE BILETÓW";
+            if (status_biletomatu.wybrany_bilet == rodzaj_biletu.BILET_OKRESOWY)
+                Opis.Text = "PROGRAMOWANIE KARTY MIEJSKIEJ";
 
             Pasek.Value = 0;
             pozostaly_czas = new DateTime();
@@ -49,12 +52,7 @@ namespace Biletomat
 
         private void AktualizujEkran(Object source, ElapsedEventArgs e)
         {
-            ++liczba_sekund;
-            if (liczba_sekund == 3)
-            {
-                Dispatcher.BeginInvoke(new Action(() => { Pasek.Value += (int)(100 / liczba_biletow); }));
-                liczba_sekund = 0;
-            }
+            Dispatcher.BeginInvoke(new Action(() => { Pasek.Value += (int)(100 / (liczba_biletow * 3)); }));
             if (pozostaly_czas.Second > 1)
             {
                 pozostaly_czas = pozostaly_czas.AddSeconds(-1);

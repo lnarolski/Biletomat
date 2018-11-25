@@ -41,12 +41,15 @@ namespace Biletomat
             {
                 case rodzaj_biletu.BILET_JEDNORAZOWY:
                     tworzenie_listy_jednorazowe();
+                    status_biletomatu.wybrany_bilet = rodzaj_biletu.BILET_JEDNORAZOWY;
                     break;
                 case rodzaj_biletu.BILET_JEDNORAZOWY_METROPOLITARNY:
                     tworzenie_listy_jednorazowe_metropolitarne();
+                    status_biletomatu.wybrany_bilet = rodzaj_biletu.BILET_JEDNORAZOWY_METROPOLITARNY;
                     break;
                 case rodzaj_biletu.BILET_OKRESOWY:
                     tworzenie_listy_okresowe();
+                    status_biletomatu.wybrany_bilet = rodzaj_biletu.BILET_OKRESOWY;
                     break;
                 default:
                     break;
@@ -71,6 +74,22 @@ namespace Biletomat
                 temp.TextWrapping = TextWrapping.Wrap;
                 Lista_biletow.Children.Add(temp);
             }
+            if (bilety_jednorazowe.bilet5_normalny != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe.bilet5_normalny.ToString() + "x jednoprzejazdowy na linie nocne, pospieszne i zwykłe normalny";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
+            if (bilety_jednorazowe.bilet5_ulgowy != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe.bilet5_ulgowy.ToString() + "x jednoprzejazdowy na linie nocne, pospieszne i zwykłe ulgowy";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
             if (bilety_jednorazowe.bilet2_normalny != 0)
             {
                 TextBlock temp = new TextBlock();
@@ -90,7 +109,7 @@ namespace Biletomat
             if (bilety_jednorazowe.bilet3_normalny != 0)
             {
                 TextBlock temp = new TextBlock();
-                temp.Text = bilety_jednorazowe.bilet3_normalny.ToString() + "x 1-godzinny lub jednoprzejazdowy na linie nocne, pospieszne i zwykłe normalny";
+                temp.Text = bilety_jednorazowe.bilet3_normalny.ToString() + "x 1-godzinny na linie nocne, pospieszne i zwykłe normalny";
                 temp.FontSize = 30;
                 temp.TextWrapping = TextWrapping.Wrap;
                 Lista_biletow.Children.Add(temp);
@@ -98,7 +117,7 @@ namespace Biletomat
             if (bilety_jednorazowe.bilet3_ulgowy != 0)
             {
                 TextBlock temp = new TextBlock();
-                temp.Text = bilety_jednorazowe.bilet3_ulgowy.ToString() + "x 1-godzinny lub jednoprzejazdowy na linie nocne, pospieszne i zwykłe ulgowy";
+                temp.Text = bilety_jednorazowe.bilet3_ulgowy.ToString() + "x 1-godzinny na linie nocne, pospieszne i zwykłe ulgowy";
                 temp.FontSize = 30;
                 temp.TextWrapping = TextWrapping.Wrap;
                 Lista_biletow.Children.Add(temp);
@@ -133,6 +152,7 @@ namespace Biletomat
 
         private void WsteczButton_Click(object sender, RoutedEventArgs e)
         {
+            status_biletomatu.wyczysc();
             this.Close();
         }
 

@@ -28,5 +28,10 @@ namespace Biletomat
         {
             this.Close();
         }
+
+        private void ScrollViewer_ManipulationBoundaryFeedback(object sender, ManipulationBoundaryFeedbackEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

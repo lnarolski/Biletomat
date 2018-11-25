@@ -45,6 +45,7 @@ namespace Biletomat
             reader.SelectVoice(voices[0].VoiceInfo.Name);
             
             status_biletomatu.wyczysc();
+            status_biletomatu.powitanie = false;
         }
 
         private void zegar_tick(object sender, EventArgs e)
@@ -70,6 +71,7 @@ namespace Biletomat
                 okno.Owner = Window.GetWindow(this);
                 okno.ShowDialog();
             }
+            status_biletomatu.powitanie = false;
         }
 
         private void biletJednorazowyMetropolitalnyButton_Click(object sender, RoutedEventArgs e)
@@ -86,7 +88,9 @@ namespace Biletomat
 
         private void pomocGlosowa_Click(object sender, RoutedEventArgs e)
         {
-            reader.SpeakAsync("Jestem gadającym biletomatem! HUEHUEHUE");
+            if (!status_biletomatu.powitanie)
+                reader.SpeakAsync("WItaj w biletomacie ZKM Gdynia.");
+            reader.SpeakAsync("Zaraz opowiem o opcjach. BLABLABLA");
         }
 
         private void biletOkresowyButton_Click(object sender, RoutedEventArgs e)

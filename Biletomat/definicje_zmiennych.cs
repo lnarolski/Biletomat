@@ -4,6 +4,7 @@
         BILET_JEDNORAZOWY,
         BILET_JEDNORAZOWY_METROPOLITARNY,
         BILET_OKRESOWY,
+        BRAK,
     };
 
     public enum rodzaj_platnosci
@@ -30,11 +31,14 @@
     {
         public static status status_zakupu;
         public static wybrana_platnosc rodzaj_platnosci;
+        public static rodzaj_biletu wybrany_bilet;
+        public static bool powitanie;
 
         public static void wyczysc()
         {
             status_zakupu = status.BRAK;
             rodzaj_platnosci = wybrana_platnosc.BRAK;
+            wybrany_bilet = rodzaj_biletu.BRAK;
         }
     }
 
@@ -48,6 +52,8 @@
         public static int bilet3_ulgowy;
         public static int bilet4_normalny;
         public static int bilet4_ulgowy;
+        public static int bilet5_normalny;
+        public static int bilet5_ulgowy;
 
         public static void czysc_ilosc()
         {
@@ -59,11 +65,13 @@
             bilet3_ulgowy = 0;
             bilet4_normalny = 0;
             bilet4_ulgowy = 0;
+            bilet5_normalny = 0;
+            bilet5_ulgowy = 0;
         }
 
         public static int liczba_biletow()
         {
-            return bilet1_normalny + bilet1_ulgowy + bilet2_normalny + bilet2_ulgowy + bilet3_normalny + bilet3_ulgowy + bilet4_normalny + bilet4_ulgowy;
+            return bilet1_normalny + bilet1_ulgowy + bilet2_normalny + bilet2_ulgowy + bilet3_normalny + bilet3_ulgowy + bilet4_normalny + bilet4_ulgowy + bilet5_normalny + bilet5_ulgowy;
         }
     }
 }

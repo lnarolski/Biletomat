@@ -50,8 +50,10 @@ namespace Biletomat
             const double bilet3_ulgowy_cena = 2.10;
             const double bilet4_normalny_cena = 13.0;
             const double bilet4_ulgowy_cena = 6.5;
+            const double bilet5_normalny_cena = 4.2;
+            const double bilet5_ulgowy_cena = 2.1;
 
-            suma = bilet1_normalny_cena * bilety_jednorazowe.bilet1_normalny + bilet1_ulgowy_cena * bilety_jednorazowe.bilet1_ulgowy + bilet2_normalny_cena * bilety_jednorazowe.bilet2_normalny + bilet2_ulgowy_cena * bilety_jednorazowe.bilet2_ulgowy + bilet3_normalny_cena * bilety_jednorazowe.bilet3_normalny + bilet3_ulgowy_cena * bilety_jednorazowe.bilet3_ulgowy + bilet4_normalny_cena * bilety_jednorazowe.bilet4_normalny + bilet4_ulgowy_cena * bilety_jednorazowe.bilet4_ulgowy;
+            suma = bilet1_normalny_cena * bilety_jednorazowe.bilet1_normalny + bilet1_ulgowy_cena * bilety_jednorazowe.bilet1_ulgowy + bilet2_normalny_cena * bilety_jednorazowe.bilet2_normalny + bilet2_ulgowy_cena * bilety_jednorazowe.bilet2_ulgowy + bilet3_normalny_cena * bilety_jednorazowe.bilet3_normalny + bilet3_ulgowy_cena * bilety_jednorazowe.bilet3_ulgowy + bilet4_normalny_cena * bilety_jednorazowe.bilet4_normalny + bilet4_ulgowy_cena * bilety_jednorazowe.bilet4_ulgowy + bilet5_normalny_cena * bilety_jednorazowe.bilet5_normalny + bilet5_ulgowy_cena * bilety_jednorazowe.bilet5_ulgowy;
             Suma_text.Text = "Razem: " + suma.ToString("F2") + " zł";
             if (suma > 0.0)
                 KupButton.IsEnabled = true;
@@ -203,6 +205,42 @@ namespace Biletomat
             sumuj_ceny();
         }
 
+        private void Bilet5_normalny_odejmij_Click(object sender, RoutedEventArgs e)
+        {
+            if (bilety_jednorazowe.bilet5_normalny < 1)
+                return;
+            --bilety_jednorazowe.bilet5_normalny;
+            Bilet5_normalny_liczba.Text = bilety_jednorazowe.bilet5_normalny.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet5_normalny_dodaj_Click(object sender, RoutedEventArgs e)
+        {
+            if (bilety_jednorazowe.bilet5_normalny > 99)
+                return;
+            ++bilety_jednorazowe.bilet5_normalny;
+            Bilet5_normalny_liczba.Text = bilety_jednorazowe.bilet5_normalny.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet5_ulgowy_odejmij_Click(object sender, RoutedEventArgs e)
+        {
+            if (bilety_jednorazowe.bilet5_ulgowy < 1)
+                return;
+            --bilety_jednorazowe.bilet5_ulgowy;
+            Bilet5_ulgowy_liczba.Text = bilety_jednorazowe.bilet5_ulgowy.ToString();
+            sumuj_ceny();
+        }
+
+        private void Bilet5_ulgowy_dodaj_Click(object sender, RoutedEventArgs e)
+        {
+            if (bilety_jednorazowe.bilet5_ulgowy > 99)
+                return;
+            ++bilety_jednorazowe.bilet5_ulgowy;
+            Bilet5_ulgowy_liczba.Text = bilety_jednorazowe.bilet5_ulgowy.ToString();
+            sumuj_ceny();
+        }
+
         private void KupButton_Click(object sender, RoutedEventArgs e)
         {
             PodsumowanieWindow okno = new PodsumowanieWindow(suma, rodzaj_biletu.BILET_JEDNORAZOWY);
@@ -214,6 +252,11 @@ namespace Biletomat
         {
             if (status_biletomatu.status_zakupu == status.WYDRUKOWANO_BILETY)
                 this.Close();
+        }
+
+        private void ScrollViewer_ManipulationBoundaryFeedback(object sender, ManipulationBoundaryFeedbackEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
