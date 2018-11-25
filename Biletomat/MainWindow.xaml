@@ -22,11 +22,12 @@
                 <TextBlock FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ><Run Text="BILET OKRESOWY"/></TextBlock>
                 <Image HorizontalAlignment="Center" Height="238" VerticalAlignment="Top" Width="685" Source="images/contactless.png"/>
                 <TextBlock FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Height="120" Width="685">Włóż kartę<LineBreak/>do czytnika</TextBlock>
-                
+
             </StackPanel>
         </Button>
-        
-        <TextBlock HorizontalAlignment="Left" Margin="86,253,0,0" TextWrapping="Wrap" Text="ZEGAR" VerticalAlignment="Top" Height="186" Width="523" Name="czas" TextAlignment="Center" FontSize="50"/>
+        <Border  Margin="86,181,0,0" Height="324" Width="523" HorizontalAlignment="Left" VerticalAlignment="Top" >
+            <TextBlock TextWrapping="Wrap" Text="ZEGAR" x:Name="czas" FontSize="50" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </Border>
         <Image HorizontalAlignment="Left" Height="254" Margin="721,64,0,0" VerticalAlignment="Top" Width="564" Source="images/zkm_logo.jpg"/>
         <Button Name="pomocGlosowa" Margin="1384,64,102,656" Click="pomocGlosowa_Click">
             <StackPanel>

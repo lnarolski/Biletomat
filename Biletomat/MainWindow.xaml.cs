@@ -89,9 +89,23 @@ namespace Biletomat
 
         private void pomocGlosowa_Click(object sender, RoutedEventArgs e)
         {
-            if (!status_biletomatu.powitanie)
-                reader.SpeakAsync("WItaj w biletomacie ZKM Gdynia.");
-            reader.SpeakAsync("Zaraz opowiem o opcjach. BLABLABLA");
+            //if (reader.State == SynthesizerState.Ready) {
+            //    pomocGlosowa.Foreground = new SolidColorBrush(Color.FromArgb(0xFF,0x22,0x64,0x9C));
+            //    if (!status_biletomatu.powitanie)
+            //        reader.SpeakAsync("WItaj w biletomacie ZKM Gdynia.");
+            //    reader.SpeakAsync("Jeśli chcesz kupić jednorazowy dotknij przycisku \"BILET JEDNORAZOWY\"");
+
+            //}
+            //else
+            //{
+
+            //    reader.SpeakAsyncCancelAll();
+            //}
+        }
+
+        private void przycisk_mruganie(Button przycisk)
+        {
+
         }
 
         private void biletOkresowyButton_Click(object sender, RoutedEventArgs e)

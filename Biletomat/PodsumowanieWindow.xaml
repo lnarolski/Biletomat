@@ -44,7 +44,7 @@
                         <TextBlock TextWrapping="Wrap" Text="Lista biletów:" FontSize="40"/>
                     </StackPanel>
                 </ScrollViewer>
-                <Border Grid.Row="0" Grid.Column="1" Margin="5" BorderBrush="#FF0097FF" BorderThickness="5">
+                <Border Grid.Row="0" Grid.Column="1" Margin="5" BorderBrush="#FF22649C" BorderThickness="5">
                     <Grid Margin="20,50">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="133*"/>
@@ -67,7 +67,7 @@
                     </Grid>
                 </Border>
                 <StackPanel Grid.Column="1" Grid.Row="1" Margin="5,0" VerticalAlignment="Center">
-                    <TextBlock Name="Do_zaplaty_text" Text="DO ZAPŁATY: 0,00 zł" FontSize="36" FontWeight="Bold" TextAlignment="Right" Foreground="#FF0097FF" />
+                    <TextBlock Name="Do_zaplaty_text" Text="DO ZAPŁATY: 0,00 zł" FontSize="36" FontWeight="Bold" TextAlignment="Right" Foreground="#FF22649C" />
                     <TextBlock Name="Wplacono_text" Text="Wpłacono: 0,00 zł" TextAlignment="Right" FontSize="36" />
                     <Canvas HorizontalAlignment="Right" Margin="0,0,200,0">
                         <Line X1="0" X2="0" Y1="0" Y2="5" StrokeThickness="400" Stroke="Black"/>
