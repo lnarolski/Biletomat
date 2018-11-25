@@ -142,7 +142,152 @@ namespace Biletomat
 
         private void tworzenie_listy_jednorazowe_metropolitarne()
         {
+            if (bilety_jednorazowe_metropolitarne.bilet1_normalny != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet1_normalny.ToString() + "x Jednoprzejazdowy na linie zwykłe normalny";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
+            if (bilety_jednorazowe_metropolitarne.bilet1_ulgowy != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet1_ulgowy.ToString() + "x Jednoprzejazdowy na linie zwykłe ulgowy";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
+            if (bilety_jednorazowe_metropolitarne.bilet2_normalny != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet2_normalny.ToString() + "x jednoprzejazdowy na linie nocne, pospieszne i zwykłe normalny";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
+            if (bilety_jednorazowe_metropolitarne.bilet2_ulgowy != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet2_ulgowy.ToString() + "x jednoprzejazdowy na linie nocne, pospieszne i zwykłe ulgowy";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
+            if (bilety_jednorazowe_metropolitarne.bilet3_normalny != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet3_normalny.ToString() + "x 24-godzinny komunalny normalny";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
+            if (bilety_jednorazowe_metropolitarne.bilet3_ulgowy != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet3_ulgowy.ToString() + "x 24-godzinny komunalny ulgowy";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
 
+            if (bilety_jednorazowe_metropolitarne.bilet4_normalny_ZTM != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet4_normalny_ZTM.ToString() + "x 24-godzinny Kolejowo-komunalny (SKM+PR+ZTM) normalny";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
+            if (bilety_jednorazowe_metropolitarne.bilet4_ulgowy_ZTM != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet4_ulgowy_ZTM.ToString() + "x 24-godzinny Kolejowo-komunalny (SKM+PR+ZTM) ulgowy";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
+            if (bilety_jednorazowe_metropolitarne.bilet4_normalny_ZKM != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet4_normalny_ZKM.ToString() + "x 24-godzinny Kolejowo-komunalny (SKM+PR+ZKM) normalny";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
+            if (bilety_jednorazowe_metropolitarne.bilet4_ulgowy_ZKM != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet4_ulgowy_ZKM.ToString() + "x 24-godzinny Kolejowo-komunalny (SKM+PR+ZKM) ulgowy";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
+            if (bilety_jednorazowe_metropolitarne.bilet4_normalny_MZK != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet4_normalny_MZK.ToString() + "x 24-godzinny Kolejowo-komunalny (SKM+PR+MZK) normalny";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
+            if (bilety_jednorazowe_metropolitarne.bilet4_ulgowy_MZK != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet4_ulgowy_MZK.ToString() + "x 24-godzinny Kolejowo-komunalny (SKM+PR+MZK) ulgowy";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
+
+            if (bilety_jednorazowe_metropolitarne.bilet5_normalny != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet5_normalny.ToString() + "x 24-godzinny kolejowo-komunalny wszystkich organizatorów normalny";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
+            if (bilety_jednorazowe_metropolitarne.bilet5_ulgowy != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet5_ulgowy.ToString() + "x 24-godzinny kolejowo-komunalny wszystkich organizatorów ulgowy";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
+            if (bilety_jednorazowe_metropolitarne.bilet6_normalny != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet6_normalny.ToString() + "x 72-godzinny komunalny normalny";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
+            if (bilety_jednorazowe_metropolitarne.bilet6_ulgowy != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet6_ulgowy.ToString() + "x 72-godzinny komunalny ulgowy";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
+            if (bilety_jednorazowe_metropolitarne.bilet7_normalny != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet7_normalny.ToString() + "x 72-godzinny kolejowo-komunalny wszystkich organizatorów normalny";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
+            if (bilety_jednorazowe_metropolitarne.bilet7_ulgowy != 0)
+            {
+                TextBlock temp = new TextBlock();
+                temp.Text = bilety_jednorazowe_metropolitarne.bilet7_ulgowy.ToString() + "x 72-godzinny kolejowo-komunalny wszystkich organizatorów ulgowy";
+                temp.FontSize = 30;
+                temp.TextWrapping = TextWrapping.Wrap;
+                Lista_biletow.Children.Add(temp);
+            }
         }
 
         private void tworzenie_listy_okresowe()
@@ -182,7 +327,12 @@ namespace Biletomat
                 status_biletomatu.rodzaj_platnosci = wybrana_platnosc.KARTA_PLATNICZA;
                 suma_zaplacono = suma;
                 aktualizuj_kwoty();
-                DrukowanieBiletowWIndow okno = new DrukowanieBiletowWIndow(bilety_jednorazowe.liczba_biletow());
+                int liczba_biletow = 0;
+                if (typ_biletow == rodzaj_biletu.BILET_JEDNORAZOWY)
+                    liczba_biletow = bilety_jednorazowe.liczba_biletow();
+                else if (typ_biletow == rodzaj_biletu.BILET_JEDNORAZOWY_METROPOLITARNY)
+                    liczba_biletow = bilety_jednorazowe_metropolitarne.liczba_biletow();
+                DrukowanieBiletowWIndow okno = new DrukowanieBiletowWIndow(liczba_biletow);
                 okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 okno.Owner = Window.GetWindow(this);
                 okno.Closed += new EventHandler(Zamkniecie_okna_drukowania_biletow);
@@ -217,6 +367,11 @@ namespace Biletomat
         {
             Wplacono_text.Text = "Wpłacono: " + suma_zaplacono.ToString("F2") + " zł";
             Pozostalo_text.Text = "Pozostało: " + (suma - suma_zaplacono).ToString("F2") + " zł";
+        }
+
+        private void ScrollViewer_ManipulationBoundaryFeedback(object sender, ManipulationBoundaryFeedbackEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

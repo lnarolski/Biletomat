@@ -1,0 +1,163 @@
+﻿<Window x:Class="Biletomat.WyborOrganizatorowWIndow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biletomat"
+        mc:Ignorable="d"
+        Title="Biletomat" Height="700" Width="1000" WindowStyle="None">
+    <Grid Width="1000" Height="700" MinWidth="1000" MinHeight="700">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="544*"/>
+            <RowDefinition Height="139*"/>
+        </Grid.RowDefinitions>
+        <Button Click="OKButton_Click" Name="OKButton" Grid.Row="2" Content="OK" HorizontalAlignment="Right" Width="281" FontSize="48" Margin="0,0,40,26" Height="100" VerticalAlignment="Bottom"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="309*" Name="Tabela"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <ScrollViewer Grid.Row="1" Grid.Column="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" PanningMode="VerticalOnly" ManipulationBoundaryFeedback="ScrollViewer_ManipulationBoundaryFeedback">
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Column="0" Grid.Row="0" BorderBrush="Black" BorderThickness="1,1,0,1"/>
+                    <Border Grid.Column="1" Grid.Row="0" BorderBrush="Black" BorderThickness="1,1,0,1"/>
+                    <Border Grid.Column="2" Grid.Row="0" BorderBrush="Black" BorderThickness="1,1,1,1"/>
+                    <Border Grid.Column="0" Grid.Row="1" BorderBrush="Black" BorderThickness="1,0,0,1"/>
+                    <Border Grid.Column="1" Grid.Row="1" BorderBrush="Black" BorderThickness="1,0,0,1"/>
+                    <Border Grid.Column="2" Grid.Row="1" BorderBrush="Black" BorderThickness="1,0,1,1"/>
+                    <Border Grid.Column="0" Grid.Row="2" BorderBrush="Black" BorderThickness="1,0,0,1"/>
+                    <Border Grid.Column="1" Grid.Row="2" BorderBrush="Black" BorderThickness="1,0,0,1"/>
+                    <Border Grid.Column="2" Grid.Row="2" BorderBrush="Black" BorderThickness="1,0,1,1"/>
+                    <Border Grid.Column="0" Grid.Row="3" BorderBrush="Black" BorderThickness="1,0,0,1"/>
+                    <Border Grid.Column="1" Grid.Row="3" BorderBrush="Black" BorderThickness="1,0,0,1"/>
+                    <Border Grid.Column="2" Grid.Row="3" BorderBrush="Black" BorderThickness="1,0,1,1"/>
+                    <Border Grid.Column="0" Grid.Row="4" BorderBrush="Black" BorderThickness="1,0,0,1"/>
+                    <Border Grid.Column="1" Grid.Row="4" BorderBrush="Black" BorderThickness="1,0,0,1"/>
+                    <Border Grid.Column="2" Grid.Row="4" BorderBrush="Black" BorderThickness="0,0,1,1"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="0" FontSize="50" HorizontalAlignment="Center" TextWrapping="Wrap" Text="BILET" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="1" Grid.Row="0" FontSize="50" HorizontalAlignment="Center" TextWrapping="Wrap" Text="NORMALNY" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="2" Grid.Row="0" FontSize="50" HorizontalAlignment="Center" TextWrapping="Wrap" Text="ULGOWY" VerticalAlignment="Center"/>
+
+                    <TextBlock Grid.Column="0" Grid.Row="1" FontSize="35" HorizontalAlignment="Center" TextWrapping="Wrap" Text="ZTM + Kolej" VerticalAlignment="Center" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="0" Grid.Row="2" FontSize="35" HorizontalAlignment="Center" TextWrapping="Wrap" Text="ZKM + Kolej" VerticalAlignment="Center" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="0" Grid.Row="3" FontSize="35" HorizontalAlignment="Center" TextWrapping="Wrap" Text="MZK + Kolej" VerticalAlignment="Center" TextAlignment="Center"/>
+
+
+                    <StackPanel Grid.Column="1" Grid.Row="1">
+                        <TextBlock FontSize="35" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center"><Run Text="20,00"/><Run Text=" zł"/></TextBlock>
+                        <Grid Grid.Row="1" Grid.Column="1" Height="94">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="206*"/>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="150*"/>
+                            </Grid.ColumnDefinitions>
+                            <RepeatButton  Name="Bilet1_normalny_odejmij" Grid.Column="1" FontSize="50" Click="Bilet1_normalny_odejmij_Click">-</RepeatButton>
+                            <TextBlock Name="Bilet1_normalny_liczba" Grid.Column="2" FontSize="35" Text="0" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <RepeatButton  Name="Bilet1_normalny_dodaj" Grid.Column="3" FontSize="50" Click="Bilet1_normalny_dodaj_Click">+</RepeatButton>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2" Grid.Row="1">
+                        <TextBlock FontSize="35" HorizontalAlignment="Center" TextWrapping="Wrap" Text="10,00 zł" VerticalAlignment="Center" TextAlignment="Center"/>
+                        <Grid Grid.Row="1" Grid.Column="2" Height="94">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="206*"/>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="150*"/>
+                            </Grid.ColumnDefinitions>
+                            <RepeatButton Name="Bilet1_ulgowy_odejmij" Grid.Column="1" FontSize="50" Click="Bilet1_ulgowy_odejmij_Click">-</RepeatButton>
+                            <TextBlock Name="Bilet1_ulgowy_liczba" Grid.Column="2" FontSize="35" Text="0" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <RepeatButton Name="Bilet1_ulgowy_dodaj" Grid.Column="3" FontSize="50" Click="Bilet1_ulgowy_dodaj_Click">+</RepeatButton>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Grid.Row="2">
+                        <TextBlock FontSize="35" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center"><Run Text="20,00"/><Run Text=" zł"/></TextBlock>
+                        <Grid Grid.Row="3" Grid.Column="1" Height="94">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="206*"/>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="150*"/>
+                            </Grid.ColumnDefinitions>
+                            <RepeatButton  Name="Bilet2_normalny_odejmij" Grid.Column="1" FontSize="50" Click="Bilet2_normalny_odejmij_Click">-</RepeatButton>
+                            <TextBlock Name="Bilet2_normalny_liczba" Grid.Column="2" FontSize="35" Text="0" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <RepeatButton  Name="Bilet2_normalny_dodaj" Grid.Column="3" FontSize="50" Click="Bilet2_normalny_dodaj_Click">+</RepeatButton>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2" Grid.Row="2">
+                        <TextBlock FontSize="35" HorizontalAlignment="Center" TextWrapping="Wrap" Text="10,00 zł" VerticalAlignment="Center" TextAlignment="Center"/>
+                        <Grid Grid.Row="3" Grid.Column="2" Height="94">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="206*"/>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="150*"/>
+                            </Grid.ColumnDefinitions>
+                            <RepeatButton Name="Bilet2_ulgowy_odejmij" Grid.Column="1" FontSize="50" Click="Bilet2_ulgowy_odejmij_Click">-</RepeatButton>
+                            <TextBlock Name="Bilet2_ulgowy_liczba" Grid.Column="2" FontSize="35" Text="0" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <RepeatButton Name="Bilet2_ulgowy_dodaj" Grid.Column="3" FontSize="50" Click="Bilet2_ulgowy_dodaj_Click">+</RepeatButton>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Grid.Row="3">
+                        <TextBlock FontSize="35" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center"><Run Text="20,00"/><Run Text=" zł"/></TextBlock>
+                        <Grid Grid.Row="2" Grid.Column="1" Height="94">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="206*"/>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="150*"/>
+                            </Grid.ColumnDefinitions>
+                            <RepeatButton  Name="Bilet3_normalny_odejmij" Grid.Column="1" FontSize="50" Click="Bilet3_normalny_odejmij_Click">-</RepeatButton>
+                            <TextBlock Name="Bilet3_normalny_liczba" Grid.Column="2" FontSize="35" Text="0" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <RepeatButton  Name="Bilet3_normalny_dodaj" Grid.Column="3" FontSize="50" Click="Bilet3_normalny_dodaj_Click">+</RepeatButton>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2" Grid.Row="3">
+                        <TextBlock FontSize="35" HorizontalAlignment="Center" TextWrapping="Wrap" Text="10,00 zł" VerticalAlignment="Center" TextAlignment="Center"/>
+                        <Grid Grid.Row="2" Grid.Column="2" Height="94">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="206*"/>
+                                <ColumnDefinition Width="150*"/>
+                                <ColumnDefinition Width="150*"/>
+                            </Grid.ColumnDefinitions>
+                            <RepeatButton Name="Bilet3_ulgowy_odejmij" Grid.Column="1" FontSize="50" Click="Bilet3_ulgowy_odejmij_Click">-</RepeatButton>
+                            <TextBlock Name="Bilet3_ulgowy_liczba" Grid.Column="2" FontSize="35" Text="0" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <RepeatButton Name="Bilet3_ulgowy_dodaj" Grid.Column="3" FontSize="50" Click="Bilet3_ulgowy_dodaj_Click">+</RepeatButton>
+                        </Grid>
+                    </StackPanel>
+
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>

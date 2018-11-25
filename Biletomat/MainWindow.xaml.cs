@@ -77,6 +77,7 @@ namespace Biletomat
         private void biletJednorazowyMetropolitalnyButton_Click(object sender, RoutedEventArgs e)
         {
             BiletJednorazowyMetropolitalny okno = new BiletJednorazowyMetropolitalny();
+            okno.Closed += new EventHandler(Zamkniecie_okna_biletJednorazowy);
             okno.Show();
         }
 

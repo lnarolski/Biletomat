@@ -80,6 +80,9 @@
     <Compile Include="taryfa_zkm.xaml.cs">
       <DependentUpon>taryfa_zkm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WyborOrganizatorowWIndow.xaml.cs">
+      <DependentUpon>WyborOrganizatorowWIndow.xaml</DependentUpon>
+    </Compile>
     <Page Include="BiletJednorazowyMetropolitalny.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,6 +134,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="taryfa_zkm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WyborOrganizatorowWIndow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

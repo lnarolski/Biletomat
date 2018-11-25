@@ -39,9 +39,11 @@
                     <RowDefinition Height="513*" />
                     <RowDefinition Height="199*" />
                 </Grid.RowDefinitions>
-                <StackPanel Name="Lista_biletow" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
-                    <TextBlock TextWrapping="Wrap" Text="Lista biletów:" FontSize="40"/>
-                </StackPanel>
+                <ScrollViewer  Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" PanningMode="VerticalOnly" ManipulationBoundaryFeedback="ScrollViewer_ManipulationBoundaryFeedback">
+                    <StackPanel Name="Lista_biletow">
+                        <TextBlock TextWrapping="Wrap" Text="Lista biletów:" FontSize="40"/>
+                    </StackPanel>
+                </ScrollViewer>
                 <Border Grid.Row="0" Grid.Column="1" Margin="5" BorderBrush="#FF0097FF" BorderThickness="5">
                     <Grid Margin="20,50">
                         <Grid.ColumnDefinitions>
