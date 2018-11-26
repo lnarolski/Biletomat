@@ -24,6 +24,7 @@
         GOTOWKA,
         GOTOWKA_BEZ_RESZTY,
         KARTA_PLATNICZA,
+        PLATNOSC_ANULOWANA,
         BRAK,
     }
 

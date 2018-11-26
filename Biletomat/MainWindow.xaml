@@ -17,7 +17,7 @@
                 BILET JEDNORAZOWY<LineBreak/>METROPOLITALNY
             </TextBlock>
         </Button>
-        <Button Name="biletOkresowyButton" HorizontalAlignment="Left" Height="506" Margin="1133,510,0,0"  VerticalAlignment="Top" Width="685" Click="biletOkresowyButton_Click">
+        <Button Name="biletOkresowyButton" HorizontalAlignment="Left" Height="506" Margin="1149,510,0,0"  VerticalAlignment="Top" Width="685" Click="biletOkresowyButton_Click">
             <StackPanel>
                 <TextBlock FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" ><Run Text="BILET OKRESOWY"/></TextBlock>
                 <Image HorizontalAlignment="Center" Height="238" VerticalAlignment="Top" Width="685" Source="images/contactless.png"/>
@@ -29,7 +29,7 @@
             <TextBlock TextWrapping="Wrap" Text="ZEGAR" x:Name="czas" FontSize="50" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" />
         </Border>
         <Image HorizontalAlignment="Left" Height="254" Margin="721,64,0,0" VerticalAlignment="Top" Width="564" Source="images/zkm_logo.jpg"/>
-        <Button Name="pomocGlosowa" Margin="1384,64,102,656" Click="pomocGlosowa_Click">
+        <Button Name="pomocGlosowa" Margin="1384,64,86,656" Click="pomocGlosowa_Click">
             <StackPanel>
                 <TextBlock FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Width="372" TextAlignment="Center">Pomoc<LineBreak/>Głosowa</TextBlock>
                 <Image Source="images/speaker.png" Height="200" Width="367" />

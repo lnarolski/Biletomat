@@ -24,12 +24,20 @@ namespace Biletomat
         {
             InitializeComponent();
 
-            if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.GOTOWKA)
-                Komunikat_tresc.Text = "Odbierz bilety oraz resztę.";
-            else if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.GOTOWKA_BEZ_RESZTY)
-                Komunikat_tresc.Text = "Odbierz bilety.";
-            else if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.KARTA_PLATNICZA)
-                Komunikat_tresc.Text = "Odbierz bilety.";
+            if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.PLATNOSC_ANULOWANA)
+            {
+                Naglowek_tresc.Text = "PŁATNOŚĆ ANULOWANA";
+                Komunikat_tresc.Text = "Odbierz resztę.";
+            }
+            else
+            {
+                if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.GOTOWKA)
+                    Komunikat_tresc.Text = "Odbierz bilety oraz resztę.";
+                else if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.GOTOWKA_BEZ_RESZTY)
+                    Komunikat_tresc.Text = "Odbierz bilety.";
+                else if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.KARTA_PLATNICZA)
+                    Komunikat_tresc.Text = "Odbierz bilety.";
+            }
             status_biletomatu.wyczysc();
         }
 

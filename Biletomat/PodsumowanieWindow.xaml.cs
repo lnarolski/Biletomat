@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
+using System.Speech.Synthesis;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,6 +30,11 @@ namespace Biletomat
         double suma;
         double suma_zaplacono;
         rodzaj_biletu typ_biletow;
+        private CultureInfo culture_info;
+        private SpeechSynthesizer reader;
+        private bool wlaczona_pomoc_glosowa;
+        private bool zatrzymaj_pomoc_glosowa;
+        private Thread thread_pomocGlosowa;
 
         public PodsumowanieWindow(double suma, rodzaj_biletu typ_biletow)
         {
@@ -36,6 +45,18 @@ namespace Biletomat
 
             zaplacona_kwota = 0.0;
             Do_zaplaty_text.Text = "DO ZAPŁATY: " + suma.ToString("F2") + " zł";
+
+            culture_info = new CultureInfo("pl-PL");
+            reader = new SpeechSynthesizer();
+            var voices = reader.GetInstalledVoices(culture_info);
+            reader.SelectVoice(voices[0].VoiceInfo.Name);
+
+            status_biletomatu.wyczysc();
+            status_biletomatu.powitanie = false;
+
+            wlaczona_pomoc_glosowa = false;
+
+            Closing += this.OnWindowClosing;
 
             switch (typ_biletow)
             {
@@ -54,6 +75,11 @@ namespace Biletomat
                 default:
                     break;
             }
+        }
+
+        private void OnWindowClosing(object sender, CancelEventArgs e)
+        {
+            zatrzymaj_pomoc_glosowa = true;
         }
 
         private void tworzenie_listy_jednorazowe()
@@ -297,13 +323,153 @@ namespace Biletomat
 
         private void WsteczButton_Click(object sender, RoutedEventArgs e)
         {
+            zatrzymaj_pomoc_glosowa = true;
+            if (suma_zaplacono > 0.0)
+            {
+                status_biletomatu.rodzaj_platnosci = wybrana_platnosc.PLATNOSC_ANULOWANA;
+                KomunikatWindow okno = new KomunikatWindow();
+                okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                okno.Owner = Window.GetWindow(this);
+                okno.ShowDialog();
+            }
             status_biletomatu.wyczysc();
             this.Close();
         }
 
+        private void pomocGlosowa_watek()
+        {
+            if (reader.State == SynthesizerState.Ready)
+            {
+                Dispatcher.BeginInvoke(new Action(() => { pomocGlosowa.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0x22, 0x64, 0x9C)); }));
+                resetuj_przyciski();
+                reader.SpeakAsync("Ekran podsumowania zakupu.");
+                Thread.Sleep(500);
+                while (true)
+                {
+                    if (reader.State == SynthesizerState.Ready)
+                    {
+                        break;
+                    }
+                    if (zatrzymaj_pomoc_glosowa)
+                    {
+                        reader.SpeakAsyncCancelAll();
+                        Dispatcher.BeginInvoke(new Action(() => { pomocGlosowa.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xDD, 0xDD, 0xDD)); }));
+                        resetuj_przyciski();
+                        wlaczona_pomoc_glosowa = false;
+                        zatrzymaj_pomoc_glosowa = false;
+                        return;
+                    }
+                }
+                resetuj_przyciski();
+                reader.SpeakAsync("W celu wyświetlenia wszystkich kupowanych biletów należy dotknąć i przesunąć palcem w górę lub w dół po liście biletów.");
+                Thread.Sleep(500);
+                while (true)
+                {
+                    if (reader.State == SynthesizerState.Ready)
+                    {
+                        break;
+                    }
+                    if (zatrzymaj_pomoc_glosowa)
+                    {
+                        reader.SpeakAsyncCancelAll();
+                        Dispatcher.BeginInvoke(new Action(() => { pomocGlosowa.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xDD, 0xDD, 0xDD)); }));
+                        resetuj_przyciski();
+                        wlaczona_pomoc_glosowa = false;
+                        zatrzymaj_pomoc_glosowa = false;
+                        return;
+                    }
+                }
+                resetuj_przyciski();
+                reader.SpeakAsync("W przypadku płatności gotówką należy skorzystać z urządzenia wrzutowego znajdującego się po prawej stronie biletomatu. Po uiszczeniu wymaganej opłaty automat automatycznie rozpocznie proces drukowania biletów. Automat wydaje resztę.");
+                Thread.Sleep(500);
+                while (true)
+                {
+                    if (reader.State == SynthesizerState.Ready)
+                    {
+                        break;
+                    }
+                    if (zatrzymaj_pomoc_glosowa)
+                    {
+                        reader.SpeakAsyncCancelAll();
+                        Dispatcher.BeginInvoke(new Action(() => { pomocGlosowa.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xDD, 0xDD, 0xDD)); }));
+                        resetuj_przyciski();
+                        wlaczona_pomoc_glosowa = false;
+                        zatrzymaj_pomoc_glosowa = false;
+                        return;
+                    }
+                }
+                resetuj_przyciski();
+                reader.SpeakAsync("W przypadku płatności kartą należy postępować zgodnie z poleceniami terminala znajdującego się po prawej stronie biletomatu.");
+                Thread.Sleep(500);
+                while (true)
+                {
+                    if (reader.State == SynthesizerState.Ready)
+                    {
+                        break;
+                    }
+                    if (zatrzymaj_pomoc_glosowa)
+                    {
+                        reader.SpeakAsyncCancelAll();
+                        Dispatcher.BeginInvoke(new Action(() => { pomocGlosowa.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xDD, 0xDD, 0xDD)); }));
+                        resetuj_przyciski();
+                        wlaczona_pomoc_glosowa = false;
+                        zatrzymaj_pomoc_glosowa = false;
+                        return;
+                    }
+                }
+                resetuj_przyciski();
+                reader.SpeakAsync("Jeśli chcesz powrócić do ekranu głównego naciśnij przycisk wstecz. Zapłacona kwota zostanie zwrócona.");
+                Thread.Sleep(500);
+                przycisk_mruganie(WsteczButton);
+                while (true)
+                {
+                    if (reader.State == SynthesizerState.Ready)
+                    {
+                        break;
+                    }
+                    if (zatrzymaj_pomoc_glosowa)
+                    {
+                        reader.SpeakAsyncCancelAll();
+                        Dispatcher.BeginInvoke(new Action(() => { pomocGlosowa.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xDD, 0xDD, 0xDD)); }));
+                        resetuj_przyciski();
+                        wlaczona_pomoc_glosowa = false;
+                        zatrzymaj_pomoc_glosowa = false;
+                        return;
+                    }
+                }
+                Dispatcher.BeginInvoke(new Action(() => { pomocGlosowa.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xDD, 0xDD, 0xDD)); }));
+                resetuj_przyciski();
+                wlaczona_pomoc_glosowa = false;
+                zatrzymaj_pomoc_glosowa = false;
+            }
+        }
+
         private void pomocGlosowa_Click(object sender, RoutedEventArgs e)
         {
+            if (!wlaczona_pomoc_glosowa)
+            {
+                thread_pomocGlosowa = new Thread(pomocGlosowa_watek);
+                thread_pomocGlosowa.Start();
+                wlaczona_pomoc_glosowa = true;
+            }
+            else
+            {
+                zatrzymaj_pomoc_glosowa = true;
+            }
+        }
 
+        private void przycisk_mruganie(Button przycisk)
+        {
+            Dispatcher.BeginInvoke(new Action(() => {
+                przycisk.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0x22, 0x64, 0x9C));
+            }));
+        }
+
+        private void resetuj_przyciski()
+        {
+            Dispatcher.BeginInvoke(new Action(() => {
+                WsteczButton.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xDD, 0xDD, 0xDD));
+            }));
         }
 
         private void SymulatorButton_Click(object sender, RoutedEventArgs e)
@@ -324,6 +490,7 @@ namespace Biletomat
                 return;
             if (platnosc_karta)
             {
+                zatrzymaj_pomoc_glosowa = true;
                 status_biletomatu.rodzaj_platnosci = wybrana_platnosc.KARTA_PLATNICZA;
                 suma_zaplacono = suma;
                 aktualizuj_kwoty();
@@ -344,6 +511,7 @@ namespace Biletomat
                 aktualizuj_kwoty();
                 if (suma_zaplacono >= suma)
                 {
+                    zatrzymaj_pomoc_glosowa = true;
                     if (suma_zaplacono == suma)
                         status_biletomatu.rodzaj_platnosci = wybrana_platnosc.GOTOWKA_BEZ_RESZTY;
                     else

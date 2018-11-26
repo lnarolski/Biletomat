@@ -12,8 +12,8 @@
             <RowDefinition Height="356*"/>
             <RowDefinition Height="81*"/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="2" Content="COFNIJ" HorizontalAlignment="Left" Width="281" FontSize="48" Name="WsteczButton" Click="WsteczButton_Click" Margin="40,0,0,26" Height="113" VerticalAlignment="Bottom"/>
-        <Button Click="KupButton_Click" Name="KupButton" Grid.Row="2" Content="KUP" HorizontalAlignment="Right" Width="281" FontSize="48" Margin="0,0,40,26" Height="113" VerticalAlignment="Bottom" IsEnabled="False"/>
+        <Button Grid.Row="2" Content="WSTECZ" HorizontalAlignment="Left" Width="281" FontSize="48" Name="WsteczButton" Click="WsteczButton_Click" Margin="40,0,0,26" Height="113" VerticalAlignment="Bottom"/>
+        <Button Click="KupButton_Click" Name="KupButton" Grid.Row="2" Content="ZAPŁAĆ" HorizontalAlignment="Right" Width="281" FontSize="48" Margin="0,0,40,26" Height="113" VerticalAlignment="Bottom" IsEnabled="False"/>
         <Image Grid.Row="0" HorizontalAlignment="Center" Height="124" Margin="727,26,727,0" VerticalAlignment="Top" Width="466" Source="images/zkm_logo.jpg"/>
         <Button Grid.Row="0" Name="pomocGlosowa" Click="pomocGlosowa_Click" Height="150" Margin="1730,26,40,0" VerticalAlignment="Top">
             <StackPanel>
