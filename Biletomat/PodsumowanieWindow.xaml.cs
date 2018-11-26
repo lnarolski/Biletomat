@@ -516,7 +516,12 @@ namespace Biletomat
                         status_biletomatu.rodzaj_platnosci = wybrana_platnosc.GOTOWKA_BEZ_RESZTY;
                     else
                         status_biletomatu.rodzaj_platnosci = wybrana_platnosc.GOTOWKA;
-                    DrukowanieBiletowWIndow okno = new DrukowanieBiletowWIndow(bilety_jednorazowe.liczba_biletow());
+                    int liczba_biletow = 0;
+                    if (typ_biletow == rodzaj_biletu.BILET_JEDNORAZOWY)
+                        liczba_biletow = bilety_jednorazowe.liczba_biletow();
+                    else if (typ_biletow == rodzaj_biletu.BILET_JEDNORAZOWY_METROPOLITARNY)
+                        liczba_biletow = bilety_jednorazowe_metropolitarne.liczba_biletow();
+                    DrukowanieBiletowWIndow okno = new DrukowanieBiletowWIndow(liczba_biletow);
                     okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                     okno.Owner = Window.GetWindow(this);
                     okno.Closed += new EventHandler(Zamkniecie_okna_drukowania_biletow);
