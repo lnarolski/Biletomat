@@ -85,6 +85,8 @@ namespace Biletomat
                 okno.ShowDialog();
             }
             status_biletomatu.powitanie = false;
+            bilety_jednorazowe.czysc_ilosc();
+            bilety_jednorazowe_metropolitarne.czysc_ilosc();
         }
 
         private void biletJednorazowyMetropolitalnyButton_Click(object sender, RoutedEventArgs e)

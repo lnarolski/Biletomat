@@ -56,7 +56,7 @@ namespace Biletomat
         {
             ++sekundy;
             Dispatcher.BeginInvoke(new Action(() => { Pasek.Value = (int)((sekundy/(liczba_biletow * 3.0)) * 100); }));
-            if (pozostaly_czas.Second > 1)
+            if (pozostaly_czas.Second > 1 || pozostaly_czas.Minute > 0 || pozostaly_czas.Hour > 0)
             {
                 pozostaly_czas = pozostaly_czas.AddSeconds(-1);
                 Dispatcher.BeginInvoke(new Action(() => { Czas_drukowania_text.Text = pozostaly_czas.ToString("mm:ss"); }));

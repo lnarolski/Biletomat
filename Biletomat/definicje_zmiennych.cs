@@ -113,7 +113,11 @@
             bilet4_ulgowy_MZK = 0;
             bilet5_normalny = 0;
             bilet5_ulgowy = 0;
-        }
+            bilet6_normalny = 0;
+            bilet6_ulgowy = 0;
+            bilet7_normalny = 0;
+            bilet7_ulgowy = 0;
+    }
 
         public static int liczba_biletow()
         {
