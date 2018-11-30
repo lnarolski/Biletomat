@@ -57,12 +57,12 @@
                         <Image Grid.Column="0" Grid.Row="0" Source="Images/pieniadze.gif"/>
                         <Image Grid.Column="0" Grid.Row="1" Source="Images/karta_platnicza.png"/>
                         <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock Text="GOTÓWKA"  FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" />
-                            <TextBlock Text="Aby zapłacić gotówką postępuj zgodnie z opisem na automacie wrzutowym." FontSize="24" TextWrapping="Wrap" TextAlignment="Center" />
+                            <TextBlock Text="GOTÓWKA"  FontSize="35" FontWeight="Bold" HorizontalAlignment="Center" />
+                            <TextBlock Text="Aby zapłacić gotówką postępuj zgodnie z opisem na automacie wrzutowym." FontSize="35" TextWrapping="Wrap" TextAlignment="Center" />
                         </StackPanel>
                         <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock Text="KARTA PŁATNICZA"  FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" />
-                            <TextBlock Text="Aby zapłacić kartą płatniczą postępuj zgodnie z poleceniami terminala." FontSize="24" TextWrapping="Wrap" TextAlignment="Center" />
+                            <TextBlock Text="KARTA PŁATNICZA"  FontSize="35" FontWeight="Bold" HorizontalAlignment="Center" />
+                            <TextBlock Text="Aby zapłacić kartą płatniczą postępuj zgodnie z poleceniami terminala." FontSize="35" TextWrapping="Wrap" TextAlignment="Center" />
                         </StackPanel>
                     </Grid>
                 </Border>

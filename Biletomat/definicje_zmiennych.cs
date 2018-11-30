@@ -28,11 +28,19 @@
         BRAK,
     }
 
+    public enum wlozony_bilet_okresowy
+    {
+        KARTA_MIEJSKA,
+        LEGITYMACJA_STUDENCKA,
+        BRAK
+    }
+
     public static class status_biletomatu
     {
         public static status status_zakupu;
         public static wybrana_platnosc rodzaj_platnosci;
         public static rodzaj_biletu wybrany_bilet;
+        public static wlozony_bilet_okresowy karta_zblizeniowa;
         public static bool powitanie;
 
         public static void wyczysc()
@@ -40,6 +48,7 @@
             status_zakupu = status.BRAK;
             rodzaj_platnosci = wybrana_platnosc.BRAK;
             wybrany_bilet = rodzaj_biletu.BRAK;
+            karta_zblizeniowa = wlozony_bilet_okresowy.BRAK;
         }
     }
 

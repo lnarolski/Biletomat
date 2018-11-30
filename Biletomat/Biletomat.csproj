@@ -80,8 +80,14 @@
     <Compile Include="taryfa_zkm.xaml.cs">
       <DependentUpon>taryfa_zkm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WyborKartyOkresowejWindow.xaml.cs">
+      <DependentUpon>WyborKartyOkresowejWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WyborOrganizatorowWIndow.xaml.cs">
       <DependentUpon>WyborOrganizatorowWIndow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WyborRodzajuBiletuOkresowegoWindow.xaml.cs">
+      <DependentUpon>WyborRodzajuBiletuOkresowegoWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="BiletJednorazowyMetropolitalny.xaml">
       <SubType>Designer</SubType>
@@ -137,7 +143,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WyborKartyOkresowejWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WyborOrganizatorowWIndow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WyborRodzajuBiletuOkresowegoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -205,6 +219,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\karta_platnicza.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\info.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

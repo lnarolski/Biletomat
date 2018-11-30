@@ -533,7 +533,13 @@ namespace Biletomat
         private void Zamkniecie_okna_drukowania_biletow(object sender, EventArgs e)
         {
             if (status_biletomatu.status_zakupu == status.WYDRUKOWANO_BILETY)
+            {
+                KomunikatWindow okno = new KomunikatWindow();
+                okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                okno.Owner = Window.GetWindow(this);
+                okno.ShowDialog();
                 this.Close();
+            }
         }
 
         private void aktualizuj_kwoty()

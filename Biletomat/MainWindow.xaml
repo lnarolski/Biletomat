@@ -35,6 +35,11 @@
                 <Image Source="images/speaker.png" Height="200" Width="367" />
             </StackPanel>
         </Button>
-        <Button Name="taryfaButton" Click="taryfaButton_Click" Content="TARYFA" HorizontalAlignment="Left" Margin="86,64,0,0" VerticalAlignment="Top" Width="523" Height="112" FontSize="48"/>
+        <Button Name="taryfaButton" Click="taryfaButton_Click"  HorizontalAlignment="Left" Margin="86,64,0,0" VerticalAlignment="Top" Width="523" Height="112" FontSize="48">
+            <DockPanel>
+                <Image Source="images/info.png" Margin="0,0,40,0" Height="90" Width="100" />
+                <TextBlock TextWrapping="Wrap" FontSize="40">INFORMACJE, REGULAMINY</TextBlock>
+            </DockPanel>
+        </Button>
     </Grid>
 </Window>

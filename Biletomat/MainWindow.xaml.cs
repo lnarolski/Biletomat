@@ -77,13 +77,13 @@ namespace Biletomat
         {
             if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.BRAK)
                 status_biletomatu.wyczysc(); //GDZIEŚ JEST NADPISYWANA WARTOŚĆ status_biletomatu.status_zakupu -> Znaleźć w przyszłości
-            if (status_biletomatu.status_zakupu == status.WYDRUKOWANO_BILETY)
-            {
-                KomunikatWindow okno = new KomunikatWindow();
-                okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                okno.Owner = Window.GetWindow(this);
-                okno.ShowDialog();
-            }
+            //if (status_biletomatu.status_zakupu == status.WYDRUKOWANO_BILETY)
+            //{
+            //    KomunikatWindow okno = new KomunikatWindow();
+            //    okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            //    okno.Owner = Window.GetWindow(this);
+            //    okno.ShowDialog();
+            //}
             status_biletomatu.powitanie = false;
             bilety_jednorazowe.czysc_ilosc();
             bilety_jednorazowe_metropolitarne.czysc_ilosc();
@@ -249,6 +249,11 @@ namespace Biletomat
         private void biletOkresowyButton_Click(object sender, RoutedEventArgs e)
         {
             zatrzymaj_pomoc_glosowa = true;
+            WyborKartyOkresowejWindow okno = new WyborKartyOkresowejWindow();
+            okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            okno.Owner = Window.GetWindow(this);
+            //okno.Closed += new EventHandler(Zamkniecie_okna_platnosci);
+            okno.ShowDialog();
         }
     }
 }

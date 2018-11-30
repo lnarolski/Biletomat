@@ -32,11 +32,12 @@ namespace Biletomat
             else
             {
                 if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.GOTOWKA)
-                    Komunikat_tresc.Text = "Odbierz bilety oraz resztę.";
+                    Naglowek_tresc.Text = "ODBIERZ BILETY ORAZ RESZTĘ";
                 else if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.GOTOWKA_BEZ_RESZTY)
-                    Komunikat_tresc.Text = "Odbierz bilety.";
+                    Naglowek_tresc.Text = "ODBIERZ BILETY";
                 else if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.KARTA_PLATNICZA)
-                    Komunikat_tresc.Text = "Odbierz bilety.";
+                    Naglowek_tresc.Text = "ODBIERZ BILETY";
+                Komunikat_tresc.Text = "Dziękujemy za skorzystanie z usług naszego biletomatu.";
             }
             status_biletomatu.wyczysc();
         }
