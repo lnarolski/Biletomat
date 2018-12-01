@@ -62,8 +62,14 @@
     <Compile Include="DrukowanieBiletowWIndow.xaml.cs">
       <DependentUpon>DrukowanieBiletowWIndow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="KartaMiejskaWyborBiletuOkresowegoWindow.xaml.cs">
+      <DependentUpon>KartaMiejskaWyborBiletuOkresowegoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="KomunikatWindow.xaml.cs">
       <DependentUpon>KomunikatWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LegitymacjaWyborBiletuOkresowegoWindow.xaml.cs">
+      <DependentUpon>LegitymacjaWyborBiletuOkresowegoWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PodsumowanieWindow.xaml.cs">
       <DependentUpon>PodsumowanieWindow.xaml</DependentUpon>
@@ -86,9 +92,6 @@
     <Compile Include="WyborOrganizatorowWIndow.xaml.cs">
       <DependentUpon>WyborOrganizatorowWIndow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WyborRodzajuBiletuOkresowegoWindow.xaml.cs">
-      <DependentUpon>WyborRodzajuBiletuOkresowegoWindow.xaml</DependentUpon>
-    </Compile>
     <Page Include="BiletJednorazowyMetropolitalny.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -101,7 +104,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="KartaMiejskaWyborBiletuOkresowegoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="KomunikatWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LegitymacjaWyborBiletuOkresowegoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -148,10 +159,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WyborOrganizatorowWIndow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WyborRodzajuBiletuOkresowegoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

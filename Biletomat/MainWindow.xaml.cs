@@ -252,8 +252,40 @@ namespace Biletomat
             WyborKartyOkresowejWindow okno = new WyborKartyOkresowejWindow();
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Owner = Window.GetWindow(this);
-            //okno.Closed += new EventHandler(Zamkniecie_okna_platnosci);
             okno.ShowDialog();
+            wczytaj_bilet_z_karty();
+            LegitymacjaWyborBiletuOkresowegoWindow okno2 = new LegitymacjaWyborBiletuOkresowegoWindow();
+            okno2.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            okno2.Owner = Window.GetWindow(this);
+            okno2.Closed += new EventHandler(Zamkniecie_okna_biletow_okresowych);
+            okno2.Show();
+        }
+
+        private void Zamkniecie_okna_biletow_okresowych(object sender, EventArgs e)
+        {
+            bilet_okresowy.czysc_bilet();
+        }
+
+        private void wczytaj_bilet_z_karty()
+        {
+            if (bilet_okresowy.wlozony_Bilet_Okresowy == wlozony_bilet_okresowy.LEGITYMACJA_STUDENCKA)
+            {
+                bilet_okresowy.okres_Biletu = okres_biletu.MIESIECZNY;
+                bilet_okresowy.typ_Biletu = typ_biletu.IMIENNY;
+                bilet_okresowy.dlugosc_Waznosci = dlugosc_waznosci.CALY_TYDZIEN;
+                bilet_okresowy.okres_Semestru = okres_semestru.BRAK;
+                bilet_okresowy.rodzaj_Ulgi = rodzaj_ulgi.ULGOWY;
+                bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
+            }
+            else
+            {
+                bilet_okresowy.okres_Biletu = okres_biletu.MIESIECZNY;
+                bilet_okresowy.typ_Biletu = typ_biletu.IMIENNY;
+                bilet_okresowy.dlugosc_Waznosci = dlugosc_waznosci.OD_PON_DO_PT;
+                bilet_okresowy.okres_Semestru = okres_semestru.BRAK;
+                bilet_okresowy.rodzaj_Ulgi = rodzaj_ulgi.NORMALNY;
+                bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
+            }
         }
     }
 }

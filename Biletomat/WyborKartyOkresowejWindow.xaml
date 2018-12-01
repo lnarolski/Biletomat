@@ -19,9 +19,9 @@
             <RowDefinition Height="5*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <RadioButton Name="legitymacja_radiobutton" Content="LEGITYMACJA&#xD;&#xA;STUDENCKA" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" IsChecked="False" HorizontalContentAlignment="Center" Width="252" VerticalContentAlignment="Center" Checked="Gotowka_radiobutton_Checked" Height="147" Margin="10" />
+        <RadioButton Name="legitymacja_radiobutton" Content="LEGITYMACJA&#xD;&#xA;STUDENCKA" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" IsChecked="False" HorizontalContentAlignment="Center" Width="252" VerticalContentAlignment="Center" Height="147" Margin="10" />
         <Button Name="OkButton" Grid.Column="1" Grid.Row="2" Click="OkButton_Click"  Content="OK" FontSize="20"/>
         <Button Name="AnulujButton" Grid.Column="2" Grid.Row="2" Click="AnulujButton_Click"  Content="ANULUJ" FontSize="20"/>
-        <RadioButton Name="Karta_miejska_radiobutton" Content="KARTA MIEJSKA" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" IsChecked="True" HorizontalContentAlignment="Center" Width="263" VerticalContentAlignment="Center" Checked="Karta_radiobutton_Checked" Height="147" Margin="10,10,0,10" />
+        <RadioButton Name="Karta_miejska_radiobutton" Content="KARTA MIEJSKA" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" IsChecked="True" HorizontalContentAlignment="Center" Width="263" VerticalContentAlignment="Center" Height="147" Margin="10,10,0,10" />
     </Grid>
 </Window>

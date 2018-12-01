@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using definicje_zmiennych;
 
 namespace Biletomat
 {
@@ -26,12 +27,23 @@ namespace Biletomat
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if ((bool) legitymacja_radiobutton.IsChecked)
+            {
+                bilet_okresowy.wlozony_Bilet_Okresowy = wlozony_bilet_okresowy.LEGITYMACJA_STUDENCKA;
+                
+            }
+            else
+            {
+                bilet_okresowy.wlozony_Bilet_Okresowy = wlozony_bilet_okresowy.KARTA_MIEJSKA;
+            }
+            this.Close();
         }
 
         private void AnulujButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
+        
     }
 }
