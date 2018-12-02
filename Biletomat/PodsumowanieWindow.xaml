@@ -40,7 +40,7 @@
                     <RowDefinition Height="199*" />
                 </Grid.RowDefinitions>
                 <ScrollViewer  Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" PanningMode="VerticalOnly" ManipulationBoundaryFeedback="ScrollViewer_ManipulationBoundaryFeedback">
-                    <StackPanel Name="Lista_biletow">
+                    <StackPanel Name="Lista_biletow" Width="802" HorizontalAlignment="Left">
                         <TextBlock TextWrapping="Wrap" Text="Lista biletów:" FontSize="40"/>
                     </StackPanel>
                 </ScrollViewer>

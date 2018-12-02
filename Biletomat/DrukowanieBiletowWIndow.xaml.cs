@@ -37,7 +37,7 @@ namespace Biletomat
             if (status_biletomatu.wybrany_bilet == rodzaj_biletu.BILET_JEDNORAZOWY || status_biletomatu.wybrany_bilet == rodzaj_biletu.BILET_JEDNORAZOWY_METROPOLITARNY)
                 Opis.Text = "DRUKOWANIE BILETÓW";
             if (status_biletomatu.wybrany_bilet == rodzaj_biletu.BILET_OKRESOWY)
-                Opis.Text = "PROGRAMOWANIE KARTY MIEJSKIEJ";
+                Opis.Text = "PROGRAMOWANIE KARTY";
 
             Pasek.Value = 0;
             this.sekundy = 0;

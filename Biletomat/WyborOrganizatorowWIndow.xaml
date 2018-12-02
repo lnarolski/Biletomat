@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Biletomat"
         mc:Ignorable="d"
-        Title="Biletomat" Height="700" Width="1000" WindowStyle="None">
+        Title="Biletomat" Height="700" Width="1000" WindowStyle="None" ResizeMode="NoResize">
     <Grid Width="1000" Height="700" MinWidth="1000" MinHeight="700">
         <Grid.RowDefinitions>
             <RowDefinition Height="17*"/>

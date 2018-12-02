@@ -31,13 +31,21 @@ namespace Biletomat
             }
             else
             {
-                if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.GOTOWKA)
-                    Naglowek_tresc.Text = "ODBIERZ BILETY ORAZ RESZTĘ";
-                else if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.GOTOWKA_BEZ_RESZTY)
-                    Naglowek_tresc.Text = "ODBIERZ BILETY";
-                else if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.KARTA_PLATNICZA)
-                    Naglowek_tresc.Text = "ODBIERZ BILETY";
-                Komunikat_tresc.Text = "Dziękujemy za skorzystanie z usług naszego biletomatu.";
+                if (status_biletomatu.wybrany_bilet == rodzaj_biletu.BILET_OKRESOWY)
+                {
+                    Naglowek_tresc.Text = "WYJMIJ BILET Z CZYTNIKA";
+                    Komunikat_tresc.Text = "Dziękujemy za skorzystanie z usług naszego biletomatu.";
+                }
+                else
+                {
+                    if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.GOTOWKA)
+                        Naglowek_tresc.Text = "ODBIERZ BILETY ORAZ RESZTĘ";
+                    else if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.GOTOWKA_BEZ_RESZTY)
+                        Naglowek_tresc.Text = "ODBIERZ BILETY";
+                    else if (status_biletomatu.rodzaj_platnosci == wybrana_platnosc.KARTA_PLATNICZA)
+                        Naglowek_tresc.Text = "ODBIERZ BILETY";
+                    Komunikat_tresc.Text = "Dziękujemy za skorzystanie z usług naszego biletomatu.";
+                }
             }
             status_biletomatu.wyczysc();
         }

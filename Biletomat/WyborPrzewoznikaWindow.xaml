@@ -1,0 +1,24 @@
+﻿<Window x:Class="Biletomat.WyborPrzewoznikaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biletomat"
+        mc:Ignorable="d"
+        Title="Biletomat" Height="1080" Width="1920" WindowState="Maximized" WindowStyle="None">
+    <Grid Width="1920" Height="1080" MinWidth="1920" MinHeight="1080">
+        <TextBlock HorizontalAlignment="Center" Height="124" Margin="0,38,10,0" VerticalAlignment="Top" TextAlignment="Center" FontSize="72"  Width="1910">Wybierz bilet okresowy:</TextBlock>
+        <Grid Margin="50,162,50,163">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Content="PRZEDŁUŻ WAŻNOŚĆ" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1431" Height="200" FontSize="72" x:Name="PrzedluzButton" Click="PrzedluzButton_Click"/>
+            <Button Grid.Row="1" Content="ZKM" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1431" Height="200" FontSize="72" Name="ZKMButton" Click="ZKMButton_Click"/>
+            <Button Grid.Row="2" Content="MZKG" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1431" Height="200" FontSize="72" Name="MZKGButton" Click="MZKGButton_Click"/>
+        </Grid>
+        <Button Content="WSTECZ" HorizontalAlignment="Left" Margin="40,0,0,26" Width="281" Height="113" FontSize="48" Name="WsteczButton" Click="WsteczButton_Click" VerticalAlignment="Bottom"/>
+
+    </Grid>
+</Window>

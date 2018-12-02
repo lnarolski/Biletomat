@@ -1,4 +1,6 @@
-﻿namespace definicje_zmiennych
+﻿using System;
+
+namespace definicje_zmiennych
 {
     public enum rodzaj_biletu {
         BILET_JEDNORAZOWY,
@@ -105,12 +107,20 @@
         BRAK
     }
 
+    public enum okno_przewoznika
+    {
+        MZKG,
+        ZKM,
+        BRAK
+    }
+
     public static class status_biletomatu
     {
         public static status status_zakupu;
         public static wybrana_platnosc rodzaj_platnosci;
         public static rodzaj_biletu wybrany_bilet;
-        public static wlozony_bilet_okresowy karta_zblizeniowa;
+        //public static wlozony_bilet_okresowy karta_zblizeniowa;
+        public static okno_przewoznika okno_Przewoznika;
         public static bool powitanie;
 
         public static void wyczysc()
@@ -118,7 +128,8 @@
             status_zakupu = status.BRAK;
             rodzaj_platnosci = wybrana_platnosc.BRAK;
             wybrany_bilet = rodzaj_biletu.BRAK;
-            karta_zblizeniowa = wlozony_bilet_okresowy.BRAK;
+            //karta_zblizeniowa = wlozony_bilet_okresowy.BRAK;
+            okno_Przewoznika = okno_przewoznika.BRAK;
         }
     }
 
@@ -215,6 +226,7 @@
         public static rodzaj_ulgi rodzaj_Ulgi;
         public static obszar_waznosci obszar_Waznosci;
         public static rodzaj_linii rodzaj_Linii;
+        public static string wybrany_miesiac;
 
 
         public static void czysc_bilet()
@@ -228,6 +240,7 @@
             rodzaj_Ulgi = rodzaj_ulgi.BRAK;
             obszar_Waznosci = obszar_waznosci.BRAK;
             rodzaj_Linii = rodzaj_linii.BRAK;
+            wybrany_miesiac = "";
         }
 
         public static double cena_bilet()
@@ -2067,21 +2080,777 @@
                             }
                             break;
                         case okres_biletu.SEMESTRALNY:
+                            switch (dlugosc_Waznosci)
+                            {
+                                case dlugosc_waznosci._4_MIESIECZNY:
+                                    switch (rodzaj_Ulgi)
+                                    {
+                                        case rodzaj_ulgi.NORMALNY:
+                                            cena = -1.0;
+                                            break;
+                                        case rodzaj_ulgi.ULGOWY:
+                                            switch (okres_Semestru)
+                                            {
+                                                case okres_semestru.LETNI_4_MIES:
+                                                    switch (rodzaj_Linii)
+                                                    {
+                                                        case rodzaj_linii.ZWYKLE:
+                                                            switch (obszar_Waznosci)
+                                                            {
+                                                                case obszar_waznosci.GDYNIA:
+                                                                    cena = 156.0;
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case rodzaj_linii.NOCNE:
+                                                            switch (obszar_Waznosci)
+                                                            {
+                                                                case obszar_waznosci.GDYNIA:
+                                                                    cena = 179.0;
+                                                                    break;
+                                                                case obszar_waznosci.SOPOT:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMIA:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.KOSAKOWO_GM:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.ZUKOWO_GM:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.SZEMUD_GM:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.WEJHEROWO_GM:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMA_REDA_WEJHEROWO:
+                                                                    cena = 160.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMIA_WEJHEROWO_GM:
+                                                                    cena = 160.0;
+                                                                    break;
+                                                                case obszar_waznosci.SIEC_KOMUNIKACYJNA:
+                                                                    cena = 198.0;
+                                                                    break;
+                                                                case obszar_waznosci.METROPOLITALNY:
+                                                                    cena = -1.0;
+                                                                    break;
+                                                                case obszar_waznosci.BRAK:
+                                                                    cena = -1.0;
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case rodzaj_linii.BRAK:
+                                                            cena = -1.0;
+                                                            break;
+                                                        default:
+                                                            break;
+                                                    }
+                                                    break;
+                                                case okres_semestru.LETNI_5_MIES:
+                                                    switch (rodzaj_Linii)
+                                                    {
+                                                        case rodzaj_linii.ZWYKLE:
+                                                            switch (obszar_Waznosci)
+                                                            {
+                                                                case obszar_waznosci.GDYNIA:
+                                                                    cena = 195.0;
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case rodzaj_linii.NOCNE:
+                                                            switch (obszar_Waznosci)
+                                                            {
+                                                                case obszar_waznosci.GDYNIA:
+                                                                    cena = 223.0;
+                                                                    break;
+                                                                case obszar_waznosci.SOPOT:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMIA:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.KOSAKOWO_GM:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.ZUKOWO_GM:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.SZEMUD_GM:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.WEJHEROWO_GM:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMA_REDA_WEJHEROWO:
+                                                                    cena = 200.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMIA_WEJHEROWO_GM:
+                                                                    cena = 200.0;
+                                                                    break;
+                                                                case obszar_waznosci.SIEC_KOMUNIKACYJNA:
+                                                                    cena = 247.0;
+                                                                    break;
+                                                                case obszar_waznosci.METROPOLITALNY:
+                                                                    cena = -1.0;
+                                                                    break;
+                                                                case obszar_waznosci.BRAK:
+                                                                    cena = -1.0;
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case rodzaj_linii.BRAK:
+                                                            cena = -1.0;
+                                                            break;
+                                                        default:
+                                                            break;
+                                                    }
+                                                    break;
+                                                case okres_semestru.ZIMOWY_4_MIES:
+                                                    switch (rodzaj_Linii)
+                                                    {
+                                                        case rodzaj_linii.ZWYKLE:
+                                                            switch (obszar_Waznosci)
+                                                            {
+                                                                case obszar_waznosci.GDYNIA:
+                                                                    cena = 156.0;
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case rodzaj_linii.NOCNE:
+                                                            switch (obszar_Waznosci)
+                                                            {
+                                                                case obszar_waznosci.GDYNIA:
+                                                                    cena = 179.0;
+                                                                    break;
+                                                                case obszar_waznosci.SOPOT:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMIA:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.KOSAKOWO_GM:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.ZUKOWO_GM:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.SZEMUD_GM:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.WEJHEROWO_GM:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMA_REDA_WEJHEROWO:
+                                                                    cena = 160.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMIA_WEJHEROWO_GM:
+                                                                    cena = 160.0;
+                                                                    break;
+                                                                case obszar_waznosci.SIEC_KOMUNIKACYJNA:
+                                                                    cena = 198.0;
+                                                                    break;
+                                                                case obszar_waznosci.METROPOLITALNY:
+                                                                    cena = -1.0;
+                                                                    break;
+                                                                case obszar_waznosci.BRAK:
+                                                                    cena = -1.0;
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case rodzaj_linii.BRAK:
+                                                            cena = -1.0;
+                                                            break;
+                                                        default:
+                                                            break;
+                                                    }
+                                                    break;
+                                                case okres_semestru.ZIMOWY_5_MIES:
+                                                    switch (rodzaj_Linii)
+                                                    {
+                                                        case rodzaj_linii.ZWYKLE:
+                                                            switch (obszar_Waznosci)
+                                                            {
+                                                                case obszar_waznosci.GDYNIA:
+                                                                    cena = 195.0;
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case rodzaj_linii.NOCNE:
+                                                            switch (obszar_Waznosci)
+                                                            {
+                                                                case obszar_waznosci.GDYNIA:
+                                                                    cena = 223.0;
+                                                                    break;
+                                                                case obszar_waznosci.SOPOT:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMIA:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.KOSAKOWO_GM:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.ZUKOWO_GM:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.SZEMUD_GM:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.WEJHEROWO_GM:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMA_REDA_WEJHEROWO:
+                                                                    cena = 200.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMIA_WEJHEROWO_GM:
+                                                                    cena = 200.0;
+                                                                    break;
+                                                                case obszar_waznosci.SIEC_KOMUNIKACYJNA:
+                                                                    cena = 247.0;
+                                                                    break;
+                                                                case obszar_waznosci.METROPOLITALNY:
+                                                                    cena = -1.0;
+                                                                    break;
+                                                                case obszar_waznosci.BRAK:
+                                                                    cena = -1.0;
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case rodzaj_linii.BRAK:
+                                                            cena = -1.0;
+                                                            break;
+                                                        default:
+                                                            break;
+                                                    }
+                                                    break;
+                                                case okres_semestru.BRAK:
+                                                    cena = -1.0;
+                                                    break;
+                                                default:
+                                                    break;
+                                            }
+                                            break;
+                                        case rodzaj_ulgi.BRAK:
+                                            cena = -1.0;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                    break;
+                                case dlugosc_waznosci._5_MIESIECZNY:
+                                    switch (rodzaj_Ulgi)
+                                    {
+                                        case rodzaj_ulgi.NORMALNY:
+                                            cena = -1.0;
+                                            break;
+                                        case rodzaj_ulgi.ULGOWY:
+                                            switch (okres_Semestru)
+                                            {
+                                                case okres_semestru.LETNI_4_MIES:
+                                                    switch (rodzaj_Linii)
+                                                    {
+                                                        case rodzaj_linii.ZWYKLE:
+                                                            switch (obszar_Waznosci)
+                                                            {
+                                                                case obszar_waznosci.GDYNIA:
+                                                                    cena = 156.0;
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case rodzaj_linii.NOCNE:
+                                                            switch (obszar_Waznosci)
+                                                            {
+                                                                case obszar_waznosci.GDYNIA:
+                                                                    cena = 179.0;
+                                                                    break;
+                                                                case obszar_waznosci.SOPOT:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMIA:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.KOSAKOWO_GM:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.ZUKOWO_GM:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.SZEMUD_GM:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.WEJHEROWO_GM:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMA_REDA_WEJHEROWO:
+                                                                    cena = 160.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMIA_WEJHEROWO_GM:
+                                                                    cena = 160.0;
+                                                                    break;
+                                                                case obszar_waznosci.SIEC_KOMUNIKACYJNA:
+                                                                    cena = 198.0;
+                                                                    break;
+                                                                case obszar_waznosci.METROPOLITALNY:
+                                                                    cena = -1.0;
+                                                                    break;
+                                                                case obszar_waznosci.BRAK:
+                                                                    cena = -1.0;
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case rodzaj_linii.BRAK:
+                                                            cena = -1.0;
+                                                            break;
+                                                        default:
+                                                            break;
+                                                    }
+                                                    break;
+                                                case okres_semestru.LETNI_5_MIES:
+                                                    switch (rodzaj_Linii)
+                                                    {
+                                                        case rodzaj_linii.ZWYKLE:
+                                                            switch (obszar_Waznosci)
+                                                            {
+                                                                case obszar_waznosci.GDYNIA:
+                                                                    cena = 195.0;
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case rodzaj_linii.NOCNE:
+                                                            switch (obszar_Waznosci)
+                                                            {
+                                                                case obszar_waznosci.GDYNIA:
+                                                                    cena = 223.0;
+                                                                    break;
+                                                                case obszar_waznosci.SOPOT:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMIA:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.KOSAKOWO_GM:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.ZUKOWO_GM:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.SZEMUD_GM:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.WEJHEROWO_GM:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMA_REDA_WEJHEROWO:
+                                                                    cena = 200.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMIA_WEJHEROWO_GM:
+                                                                    cena = 200.0;
+                                                                    break;
+                                                                case obszar_waznosci.SIEC_KOMUNIKACYJNA:
+                                                                    cena = 247.0;
+                                                                    break;
+                                                                case obszar_waznosci.METROPOLITALNY:
+                                                                    cena = -1.0;
+                                                                    break;
+                                                                case obszar_waznosci.BRAK:
+                                                                    cena = -1.0;
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case rodzaj_linii.BRAK:
+                                                            cena = -1.0;
+                                                            break;
+                                                        default:
+                                                            break;
+                                                    }
+                                                    break;
+                                                case okres_semestru.ZIMOWY_4_MIES:
+                                                    switch (rodzaj_Linii)
+                                                    {
+                                                        case rodzaj_linii.ZWYKLE:
+                                                            switch (obszar_Waznosci)
+                                                            {
+                                                                case obszar_waznosci.GDYNIA:
+                                                                    cena = 156.0;
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case rodzaj_linii.NOCNE:
+                                                            switch (obszar_Waznosci)
+                                                            {
+                                                                case obszar_waznosci.GDYNIA:
+                                                                    cena = 179.0;
+                                                                    break;
+                                                                case obszar_waznosci.SOPOT:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMIA:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.KOSAKOWO_GM:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.ZUKOWO_GM:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.SZEMUD_GM:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.WEJHEROWO_GM:
+                                                                    cena = 122.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMA_REDA_WEJHEROWO:
+                                                                    cena = 160.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMIA_WEJHEROWO_GM:
+                                                                    cena = 160.0;
+                                                                    break;
+                                                                case obszar_waznosci.SIEC_KOMUNIKACYJNA:
+                                                                    cena = 198.0;
+                                                                    break;
+                                                                case obszar_waznosci.METROPOLITALNY:
+                                                                    cena = -1.0;
+                                                                    break;
+                                                                case obszar_waznosci.BRAK:
+                                                                    cena = -1.0;
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case rodzaj_linii.BRAK:
+                                                            cena = -1.0;
+                                                            break;
+                                                        default:
+                                                            break;
+                                                    }
+                                                    break;
+                                                case okres_semestru.ZIMOWY_5_MIES:
+                                                    switch (rodzaj_Linii)
+                                                    {
+                                                        case rodzaj_linii.ZWYKLE:
+                                                            switch (obszar_Waznosci)
+                                                            {
+                                                                case obszar_waznosci.GDYNIA:
+                                                                    cena = 195.0;
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case rodzaj_linii.NOCNE:
+                                                            switch (obszar_Waznosci)
+                                                            {
+                                                                case obszar_waznosci.GDYNIA:
+                                                                    cena = 223.0;
+                                                                    break;
+                                                                case obszar_waznosci.SOPOT:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMIA:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.KOSAKOWO_GM:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.ZUKOWO_GM:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.SZEMUD_GM:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.WEJHEROWO_GM:
+                                                                    cena = 152.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMA_REDA_WEJHEROWO:
+                                                                    cena = 200.0;
+                                                                    break;
+                                                                case obszar_waznosci.RUMIA_WEJHEROWO_GM:
+                                                                    cena = 200.0;
+                                                                    break;
+                                                                case obszar_waznosci.SIEC_KOMUNIKACYJNA:
+                                                                    cena = 247.0;
+                                                                    break;
+                                                                case obszar_waznosci.METROPOLITALNY:
+                                                                    cena = -1.0;
+                                                                    break;
+                                                                case obszar_waznosci.BRAK:
+                                                                    cena = -1.0;
+                                                                    break;
+                                                                default:
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case rodzaj_linii.BRAK:
+                                                            cena = -1.0;
+                                                            break;
+                                                        default:
+                                                            break;
+                                                    }
+                                                    break;
+                                                case okres_semestru.BRAK:
+                                                    cena = -1.0;
+                                                    break;
+                                                default:
+                                                    break;
+                                            }
+                                            break;
+                                        case rodzaj_ulgi.BRAK:
+                                            cena = -1.0;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                    break;
+                                case dlugosc_waznosci.BRAK:
+                                    cena = -1.0;
+                                    break;
+                                default:
+                                    cena = -1.0;
+                                    break;
+                            }
                             break;
                         case okres_biletu.BRAK:
+                            cena = -1.0;
                             break;
                         default:
                             break;
                     }
                     break;
                 case przewoznik.MZKG:
+                    switch (okres_Biletu)
+                    {
+                        case okres_biletu.MIESIECZNY:
+                            switch (rodzaj_Ulgi)
+                            {
+                                case rodzaj_ulgi.NORMALNY:
+                                    cena = 132.0;
+                                    break;
+                                case rodzaj_ulgi.ULGOWY:
+                                    cena = 66.0;
+                                    break;
+                                case rodzaj_ulgi.BRAK:
+                                    cena = -1.0;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        case okres_biletu._30_DNIOWY:
+                            switch (rodzaj_Ulgi)
+                            {
+                                case rodzaj_ulgi.NORMALNY:
+                                    cena = 132.0;
+                                    break;
+                                case rodzaj_ulgi.ULGOWY:
+                                    cena = 66.0;
+                                    break;
+                                case rodzaj_ulgi.BRAK:
+                                    cena = -1.0;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        case okres_biletu.BRAK:
+                            cena = -1.0;
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 case przewoznik.BRAK:
+                    cena = -1.0;
                     break;
                 default:
                     break;
             }
             return cena;
-        } 
+        }
+        
+        public static string napis_bilet()
+        {
+            string nazwa_biletu = "Bilet ";
+            switch (przewoznik)
+            {
+                case przewoznik.ZKM:
+                    nazwa_biletu += "ZKM ";
+                    break;
+                case przewoznik.MZKG:
+                    nazwa_biletu += "MZKG ";
+                    break;
+                case przewoznik.BRAK:
+                    nazwa_biletu += "BŁĄD PRZEWOŹNIKA ";
+                    break;
+                default:
+                    break;
+            }
+            switch (okres_Biletu)
+            {
+                case okres_biletu.MIESIECZNY:
+                    nazwa_biletu += "miesięczny (" + wybrany_miesiac + ") ";
+                    break;
+                case okres_biletu._30_DNIOWY:
+                    nazwa_biletu += "30-dniowy ";
+                    break;
+                case okres_biletu.SEMESTRALNY:
+                    nazwa_biletu += "semestralny ";
+                    break;
+                case okres_biletu.BRAK:
+                    nazwa_biletu += "BŁĄD OKRESU BILETU ";
+                    break;
+                default:
+                    break;
+            }
+            switch (typ_Biletu)
+            {
+                case typ_biletu.IMIENNY:
+                    nazwa_biletu += "imienny ";
+                    break;
+                case typ_biletu.NA_OKAZICIELA:
+                    nazwa_biletu += "na okaziciela ";
+                    break;
+                case typ_biletu.BRAK:
+                    break;
+                default:
+                    break;
+            }
+            switch (dlugosc_Waznosci)
+            {
+                case dlugosc_waznosci.OD_PON_DO_PT:
+                    nazwa_biletu += "od Poniedziałku do Piątku ";
+                    break;
+                case dlugosc_waznosci.CALY_TYDZIEN:
+                    nazwa_biletu += "na cały tydzień ";
+                    break;
+                case dlugosc_waznosci._4_MIESIECZNY:
+                    nazwa_biletu += "4 miesięczny ";
+                    break;
+                case dlugosc_waznosci._5_MIESIECZNY:
+                    nazwa_biletu += "5 miesięczny ";
+                    break;
+                case dlugosc_waznosci.BRAK:
+                    break;
+                default:
+                    break;
+            }
+            switch (okres_Semestru)
+            {
+                case okres_semestru.LETNI_4_MIES:
+                    nazwa_biletu += "od 01.02 do 31.05 ";
+                    break;
+                case okres_semestru.LETNI_5_MIES:
+                    nazwa_biletu += "od 01.02 do 30.06 ";
+                    break;
+                case okres_semestru.ZIMOWY_4_MIES:
+                    nazwa_biletu += "od 01.10 do 31.01 ";
+                    break;
+                case okres_semestru.ZIMOWY_5_MIES:
+                    nazwa_biletu += "od 01.09 do 31.01 ";
+                    break;
+                case okres_semestru.BRAK:
+                    break;
+                default:
+                    break;
+            }
+            switch (rodzaj_Ulgi)
+            {
+                case rodzaj_ulgi.NORMALNY:
+                    nazwa_biletu += "NORMALNY ";
+                    break;
+                case rodzaj_ulgi.ULGOWY:
+                    nazwa_biletu += "ULGOWY ";
+                    break;
+                case rodzaj_ulgi.BRAK:
+                    nazwa_biletu += "BŁĄD ULGI ";
+                    break;
+                default:
+                    break;
+            }
+            switch (obszar_Waznosci)
+            {
+                case obszar_waznosci.GDYNIA:
+                    nazwa_biletu += "ważny w granicach Gdyni ";
+                    break;
+                case obszar_waznosci.SOPOT:
+                    nazwa_biletu += "ważny w granicach Sopotu ";
+                    break;
+                case obszar_waznosci.RUMIA:
+                    nazwa_biletu += "ważny w granicach Rumi ";
+                    break;
+                case obszar_waznosci.KOSAKOWO_GM:
+                    nazwa_biletu += "ważny w granicach Gminy Kosakowo ";
+                    break;
+                case obszar_waznosci.ZUKOWO_GM:
+                    nazwa_biletu += "ważny w granicach Gminy Żukowo ";
+                    break;
+                case obszar_waznosci.SZEMUD_GM:
+                    nazwa_biletu += "ważny w granicach Gminy Szemud ";
+                    break;
+                case obszar_waznosci.WEJHEROWO_GM:
+                    nazwa_biletu += "ważny w granicach Gminy Wejherowo ";
+                    break;
+                case obszar_waznosci.RUMA_REDA_WEJHEROWO:
+                    nazwa_biletu += "ważny w granicach Rumi, Redy i miasta Wejherowo ";
+                    break;
+                case obszar_waznosci.RUMIA_WEJHEROWO_GM:
+                    nazwa_biletu += "ważny w granicach Rumi i Gminy Wejherowo ";
+                    break;
+                case obszar_waznosci.SIEC_KOMUNIKACYJNA:
+                    nazwa_biletu += "ważny w obrębie sieci komunikacyjnej ";
+                    break;
+                case obszar_waznosci.METROPOLITALNY:
+                    nazwa_biletu += "ważny w granicach Metropolii ";
+                    break;
+                case obszar_waznosci.BRAK:
+                    break;
+                default:
+                    break;
+            }
+            switch (rodzaj_Linii)
+            {
+                case rodzaj_linii.ZWYKLE:
+                    nazwa_biletu += "na linie zwykłe";
+                    break;
+                case rodzaj_linii.NOCNE:
+                    nazwa_biletu += "na linie zwykłe, pospieszne i nocne";
+                    break;
+                case rodzaj_linii.BRAK:
+                    break;
+                default:
+                    break;
+            }
+            return nazwa_biletu;
+        }
     };
 }

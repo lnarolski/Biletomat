@@ -318,7 +318,12 @@ namespace Biletomat
 
         private void tworzenie_listy_okresowe()
         {
-
+            TextBlock temp = new TextBlock();
+            temp.Text = "1x " + bilet_okresowy.napis_bilet();
+            temp.FontSize = 30;
+            temp.TextWrapping = TextWrapping.Wrap;
+            temp.TextAlignment = TextAlignment.Justify;
+            Lista_biletow.Children.Add(temp);
         }
 
         private void WsteczButton_Click(object sender, RoutedEventArgs e)
@@ -499,6 +504,8 @@ namespace Biletomat
                     liczba_biletow = bilety_jednorazowe.liczba_biletow();
                 else if (typ_biletow == rodzaj_biletu.BILET_JEDNORAZOWY_METROPOLITARNY)
                     liczba_biletow = bilety_jednorazowe_metropolitarne.liczba_biletow();
+                else if (typ_biletow == rodzaj_biletu.BILET_OKRESOWY)
+                    liczba_biletow = 1;
                 DrukowanieBiletowWIndow okno = new DrukowanieBiletowWIndow(liczba_biletow);
                 okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 okno.Owner = Window.GetWindow(this);
@@ -521,6 +528,8 @@ namespace Biletomat
                         liczba_biletow = bilety_jednorazowe.liczba_biletow();
                     else if (typ_biletow == rodzaj_biletu.BILET_JEDNORAZOWY_METROPOLITARNY)
                         liczba_biletow = bilety_jednorazowe_metropolitarne.liczba_biletow();
+                    else if (typ_biletow == rodzaj_biletu.BILET_OKRESOWY)
+                        liczba_biletow = 1;
                     DrukowanieBiletowWIndow okno = new DrukowanieBiletowWIndow(liczba_biletow);
                     okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                     okno.Owner = Window.GetWindow(this);

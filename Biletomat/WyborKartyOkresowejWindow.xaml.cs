@@ -41,6 +41,7 @@ namespace Biletomat
 
         private void AnulujButton_Click(object sender, RoutedEventArgs e)
         {
+            bilet_okresowy.wlozony_Bilet_Okresowy = wlozony_bilet_okresowy.BRAK;
             this.Close();
         }
 

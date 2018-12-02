@@ -49,6 +49,9 @@ namespace Biletomat
             
             status_biletomatu.wyczysc();
             status_biletomatu.powitanie = false;
+            bilet_okresowy.czysc_bilet();
+            bilety_jednorazowe.czysc_ilosc();
+            bilety_jednorazowe_metropolitarne.czysc_ilosc();
 
             wlaczona_pomoc_glosowa = false;
 
@@ -215,7 +218,7 @@ namespace Biletomat
             }
         }
 
-            private void pomocGlosowa_Click(object sender, RoutedEventArgs e)
+        private void pomocGlosowa_Click(object sender, RoutedEventArgs e)
         {
             if (!wlaczona_pomoc_glosowa)
             {
@@ -252,39 +255,52 @@ namespace Biletomat
             WyborKartyOkresowejWindow okno = new WyborKartyOkresowejWindow();
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Owner = Window.GetWindow(this);
+            okno.Closed += new EventHandler(Zamkniecie_okna_wyboru_karty_okresowej);
             okno.ShowDialog();
-            wczytaj_bilet_z_karty();
-            LegitymacjaWyborBiletuOkresowegoWindow okno2 = new LegitymacjaWyborBiletuOkresowegoWindow();
-            okno2.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            okno2.Owner = Window.GetWindow(this);
-            okno2.Closed += new EventHandler(Zamkniecie_okna_biletow_okresowych);
-            okno2.Show();
+        }
+
+        private void Zamkniecie_okna_wyboru_karty_okresowej(object sender, EventArgs e)
+        {
+            if (bilet_okresowy.wlozony_Bilet_Okresowy != wlozony_bilet_okresowy.BRAK)
+            {
+                wczytaj_bilet_z_karty();
+                WyborPrzewoznikaWindow okno = new WyborPrzewoznikaWindow();
+                okno.Closed += new EventHandler(Zamkniecie_okna_biletow_okresowych);
+                okno.Show();
+            }
         }
 
         private void Zamkniecie_okna_biletow_okresowych(object sender, EventArgs e)
         {
             bilet_okresowy.czysc_bilet();
+            status_biletomatu.powitanie = false;
         }
 
         private void wczytaj_bilet_z_karty()
         {
             if (bilet_okresowy.wlozony_Bilet_Okresowy == wlozony_bilet_okresowy.LEGITYMACJA_STUDENCKA)
             {
+                bilet_okresowy.przewoznik = przewoznik.ZKM;
                 bilet_okresowy.okres_Biletu = okres_biletu.MIESIECZNY;
+                bilet_okresowy.wybrany_miesiac = DateTime.Now.AddMonths(1).ToString("MMMM yyyy");
                 bilet_okresowy.typ_Biletu = typ_biletu.IMIENNY;
                 bilet_okresowy.dlugosc_Waznosci = dlugosc_waznosci.CALY_TYDZIEN;
                 bilet_okresowy.okres_Semestru = okres_semestru.BRAK;
                 bilet_okresowy.rodzaj_Ulgi = rodzaj_ulgi.ULGOWY;
                 bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
+                bilet_okresowy.rodzaj_Linii = rodzaj_linii.ZWYKLE;
             }
             else
             {
+                bilet_okresowy.przewoznik = przewoznik.ZKM;
                 bilet_okresowy.okres_Biletu = okres_biletu.MIESIECZNY;
+                bilet_okresowy.wybrany_miesiac = DateTime.Now.AddMonths(1).ToString("MMMM yyyy");
                 bilet_okresowy.typ_Biletu = typ_biletu.IMIENNY;
                 bilet_okresowy.dlugosc_Waznosci = dlugosc_waznosci.OD_PON_DO_PT;
                 bilet_okresowy.okres_Semestru = okres_semestru.BRAK;
                 bilet_okresowy.rodzaj_Ulgi = rodzaj_ulgi.NORMALNY;
                 bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
+                bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             }
         }
     }
