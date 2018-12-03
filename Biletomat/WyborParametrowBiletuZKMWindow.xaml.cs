@@ -58,18 +58,18 @@ namespace Biletomat
                 if (pierwsza_lista_obszaru_waznosci)
                 {
                     Sopot.IsChecked = true;
-                    Rumia_Reda_Wejherowo.Visibility = Visibility.Hidden;
-                    Gm_wejherowo_Rumia.Visibility = Visibility.Hidden;
+                    Rumia_Reda_Wejherowo.IsEnabled = false;
+                    Gm_wejherowo_Rumia.IsEnabled = false;
                 }
                 else
                 {
                     Rumia_Reda_Wejherowo.IsChecked = true;
-                    Sopot.Visibility = Visibility.Hidden;
-                    Rumia.Visibility = Visibility.Hidden;
-                    Gm_Kosakowo.Visibility = Visibility.Hidden;
-                    Gm_Zukowo.Visibility = Visibility.Hidden;
-                    Gm_Szemud.Visibility = Visibility.Hidden;
-                    Gm_Wejherowo.Visibility = Visibility.Hidden;
+                    Sopot.IsEnabled = false;
+                    Rumia.IsEnabled = false;
+                    Gm_Kosakowo.IsEnabled = false;
+                    Gm_Zukowo.IsEnabled = false;
+                    Gm_Szemud.IsEnabled = false;
+                    Gm_Wejherowo.IsEnabled = false;
                 }
             }
             else
