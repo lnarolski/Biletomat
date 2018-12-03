@@ -18,8 +18,8 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
-            <TextBlock Name="Naglowek_tresc" Text="DZIĘKUJEMY ZA SKORZYSTANIE Z USŁUG NASZEGO BILETOMATU" HorizontalAlignment="Center" FontWeight="Bold" FontSize="36" TextWrapping="Wrap" TextAlignment="Center"/>
-            <TextBlock Name="Komunikat_tresc" Text="" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20" TextWrapping="Wrap" TextAlignment="Center"/>
+            <TextBlock Name="Naglowek_tresc" Text="DZIĘKUJEMY ZA SKORZYSTANIE Z USŁUG NASZEGO BILETOMATU" HorizontalAlignment="Center" FontWeight="Bold" FontSize="45" TextWrapping="Wrap" TextAlignment="Center"/>
+            <TextBlock Name="Komunikat_tresc" Text="" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20" TextWrapping="Wrap" TextAlignment="Center"/>
             <Button Name="OK_Button" Click="OK_Button_Click" Content="OK" Width="200" Height="75" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </StackPanel>
     </Grid>
