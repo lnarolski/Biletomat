@@ -281,5 +281,6 @@
             </ScrollViewer>
         </Grid>
         <TextBlock Name="Suma_text" Grid.Row="2" TextWrapping="Wrap" Text="Razem: 0,00 zł"  Width="1268" TextAlignment="Center" FontSize="48" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Rectangle Grid.RowSpan="3" Name="tlo" Fill="#7F000000" />
     </Grid>
 </Window>

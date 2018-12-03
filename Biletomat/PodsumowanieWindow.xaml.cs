@@ -40,6 +40,8 @@ namespace Biletomat
         {
             InitializeComponent();
 
+            tlo.Visibility = Visibility.Hidden;
+
             this.suma = suma;
             this.typ_biletow = typ_biletow;
 
@@ -506,6 +508,7 @@ namespace Biletomat
                     liczba_biletow = bilety_jednorazowe_metropolitarne.liczba_biletow();
                 else if (typ_biletow == rodzaj_biletu.BILET_OKRESOWY)
                     liczba_biletow = 1;
+                tlo.Visibility = Visibility.Visible;
                 DrukowanieBiletowWIndow okno = new DrukowanieBiletowWIndow(liczba_biletow);
                 okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 okno.Owner = Window.GetWindow(this);
@@ -530,6 +533,7 @@ namespace Biletomat
                         liczba_biletow = bilety_jednorazowe_metropolitarne.liczba_biletow();
                     else if (typ_biletow == rodzaj_biletu.BILET_OKRESOWY)
                         liczba_biletow = 1;
+                    tlo.Visibility = Visibility.Visible;
                     DrukowanieBiletowWIndow okno = new DrukowanieBiletowWIndow(liczba_biletow);
                     okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                     okno.Owner = Window.GetWindow(this);

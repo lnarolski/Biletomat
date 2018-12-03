@@ -77,5 +77,6 @@
             </Grid>
         </Grid>
         <Rectangle Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Rectangle Grid.RowSpan="3" Name="tlo" Fill="#7F000000" />
     </Grid>
 </Window>

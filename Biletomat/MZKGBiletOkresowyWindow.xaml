@@ -52,5 +52,6 @@
             </StackPanel>
 
         </Grid>
+        <Rectangle Grid.RowSpan="3" Name="tlo" Fill="#7F000000" />
     </Grid>
 </Window>

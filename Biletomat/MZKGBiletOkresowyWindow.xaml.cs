@@ -34,6 +34,8 @@ namespace Biletomat
         {
             InitializeComponent();
 
+            tlo.Visibility = Visibility.Hidden;
+
             if (bilet_okresowy.wlozony_Bilet_Okresowy == wlozony_bilet_okresowy.LEGITYMACJA_STUDENCKA)
             {
                 Komunalny_30_normalny.IsEnabled = false;
@@ -207,6 +209,7 @@ namespace Biletomat
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.METROPOLITALNY;
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.BRAK;
 
+            tlo.Visibility = Visibility.Visible;
             WyborMiesiacaWindow okno = new WyborMiesiacaWindow();
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_wyboru_miesiaca);
@@ -223,6 +226,7 @@ namespace Biletomat
                 okno.Closed += new EventHandler(Zamkniecie_okna_podsumowania);
                 okno.Show();
             }
+            tlo.Visibility = Visibility.Hidden;
         }
 
         private void Komunalny_mies_ulgowy_Click(object sender, RoutedEventArgs e)
@@ -236,6 +240,7 @@ namespace Biletomat
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.METROPOLITALNY;
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.BRAK;
 
+            tlo.Visibility = Visibility.Visible;
             WyborMiesiacaWindow okno = new WyborMiesiacaWindow();
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_wyboru_miesiaca);

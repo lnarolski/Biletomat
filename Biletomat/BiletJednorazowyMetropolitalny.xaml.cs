@@ -42,6 +42,8 @@ namespace Biletomat
         {
             InitializeComponent();
 
+            tlo.Visibility = Visibility.Hidden;
+
             bilety_jednorazowe_metropolitarne.czysc_ilosc();
 
             suma = 0.0;
@@ -509,6 +511,7 @@ namespace Biletomat
 
         private void Wybor_organizatorow_Click(object sender, RoutedEventArgs e)
         {
+            tlo.Visibility = Visibility.Visible;
             WyborOrganizatorowWIndow okno = new WyborOrganizatorowWIndow();
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Owner = Window.GetWindow(this);
@@ -520,6 +523,7 @@ namespace Biletomat
 
         private void Zamkniecie_okna_wyboru_organizatorow(object sender, EventArgs e)
         {
+            tlo.Visibility = Visibility.Hidden;
             sumuj_ceny();
         }
     }

@@ -34,6 +34,8 @@ namespace Biletomat
         {
             InitializeComponent();
 
+            tlo.Visibility = Visibility.Hidden;
+
             if (bilet_okresowy.wlozony_Bilet_Okresowy == wlozony_bilet_okresowy.LEGITYMACJA_STUDENCKA)
             {
                 _1x1.IsEnabled = false;
@@ -183,6 +185,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -202,6 +205,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.ZWYKLE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false,false,false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -213,6 +217,7 @@ namespace Biletomat
         {
             if (bilet_okresowy.okres_Biletu != okres_biletu.BRAK)
             {
+                tlo.Visibility = Visibility.Visible;
                 if (bilet_okresowy.okres_Biletu == okres_biletu.MIESIECZNY)
                 {
                     WyborMiesiacaWindow okno = new WyborMiesiacaWindow();
@@ -227,15 +232,19 @@ namespace Biletomat
                     PodsumowanieWindow okno2 = new PodsumowanieWindow(bilet_okresowy.cena_bilet(), rodzaj_biletu.BILET_OKRESOWY);
                     okno2.Closed += new EventHandler(Zamkniecie_okna_podsumowania);
                     okno2.Show();
+                    tlo.Visibility = Visibility.Hidden;
                 }
 
             }
+
+            tlo.Visibility = Visibility.Hidden;
         }
 
         private void Zamkniecie_okna_WyborMiesiacaWindow(object sender, EventArgs e)
         {
             if ((String.Compare(bilet_okresowy.wybrany_miesiac, "") == 0))
             {
+                tlo.Visibility = Visibility.Hidden;
                 return;
             }
             else
@@ -244,6 +253,7 @@ namespace Biletomat
                 PodsumowanieWindow okno2 = new PodsumowanieWindow(bilet_okresowy.cena_bilet(), rodzaj_biletu.BILET_OKRESOWY);
                 okno2.Closed += new EventHandler(Zamkniecie_okna_podsumowania);
                 okno2.Show();
+                tlo.Visibility = Visibility.Hidden;
             }
         }
 
@@ -268,6 +278,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.BRAK;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(true, true, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -287,6 +298,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.BRAK;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(true, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -305,6 +317,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.SIEC_KOMUNIKACYJNA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -324,6 +337,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.ZWYKLE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -342,6 +356,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -360,6 +375,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.BRAK;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(true, true, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -378,6 +394,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.BRAK;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(true, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -396,6 +413,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.SIEC_KOMUNIKACYJNA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -415,6 +433,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.ZWYKLE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -433,6 +452,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -451,6 +471,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.BRAK;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(true, true, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -469,6 +490,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.BRAK;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(true, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -487,6 +509,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.SIEC_KOMUNIKACYJNA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -506,6 +529,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.ZWYKLE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -524,6 +548,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -542,6 +567,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.BRAK;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(true, true, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -560,6 +586,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.BRAK;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(true, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -578,6 +605,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.SIEC_KOMUNIKACYJNA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -597,6 +625,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.ZWYKLE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -615,6 +644,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -633,6 +663,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.BRAK;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(true, true, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -650,6 +681,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.BRAK;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(true, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -668,6 +700,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.SIEC_KOMUNIKACYJNA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -686,6 +719,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.ZWYKLE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, true);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -704,6 +738,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, true);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -722,6 +757,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.BRAK;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(true, true, true);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -739,6 +775,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.BRAK;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(true, false, true);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -757,6 +794,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.SIEC_KOMUNIKACYJNA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, true);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -775,6 +813,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.ZWYKLE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -793,6 +832,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.GDYNIA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -811,6 +851,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.BRAK;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(true, true, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -828,6 +869,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.BRAK;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(true, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
@@ -846,6 +888,7 @@ namespace Biletomat
             bilet_okresowy.rodzaj_Linii = rodzaj_linii.NOCNE;
             bilet_okresowy.obszar_Waznosci = obszar_waznosci.SIEC_KOMUNIKACYJNA;
 
+            tlo.Visibility = Visibility.Visible;
             WyborParametrowBiletuZKMWindow okno = new WyborParametrowBiletuZKMWindow(false, false, false);
             okno.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             okno.Closed += new EventHandler(Zamkniecie_okna_WyborParametrowBiletuZKMWindow);
