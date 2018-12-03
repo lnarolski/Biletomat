@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
+using System.Speech.Synthesis;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,7 +24,11 @@ namespace Biletomat
     /// </summary>
     public partial class ZKMBiletOkresowyWindow : Window
     {
+        private CultureInfo culture_info;
+        private SpeechSynthesizer reader;
+        private bool wlaczona_pomoc_glosowa;
         private bool zatrzymaj_pomoc_glosowa;
+        private Thread thread_pomocGlosowa;
 
         public ZKMBiletOkresowyWindow()
         {
@@ -44,6 +52,18 @@ namespace Biletomat
                 _5x4.IsEnabled = false;
                 _5x5.IsEnabled = false;
             }
+
+            culture_info = new CultureInfo("pl-PL");
+            reader = new SpeechSynthesizer();
+            var voices = reader.GetInstalledVoices(culture_info);
+            reader.SelectVoice(voices[0].VoiceInfo.Name);
+            wlaczona_pomoc_glosowa = false;
+            Closing += this.OnWindowClosing;
+        }
+
+        private void OnWindowClosing(object sender, CancelEventArgs e)
+        {
+            zatrzymaj_pomoc_glosowa = true;
         }
 
         private void WsteczButton_Click(object sender, RoutedEventArgs e)
@@ -51,9 +71,104 @@ namespace Biletomat
             this.Close();
         }
 
+        private void pomocGlosowa_watek()
+        {
+            if (reader.State == SynthesizerState.Ready)
+            {
+                Dispatcher.BeginInvoke(new Action(() => { pomocGlosowa.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0x22, 0x64, 0x9C)); }));
+                resetuj_przyciski();
+                reader.SpeakAsync("Ekran zakupu biletów okresowych ZKM.");
+                Thread.Sleep(500);
+                while (true)
+                {
+                    if (reader.State == SynthesizerState.Ready)
+                    {
+                        break;
+                    }
+                    if (zatrzymaj_pomoc_glosowa)
+                    {
+                        reader.SpeakAsyncCancelAll();
+                        Dispatcher.BeginInvoke(new Action(() => { pomocGlosowa.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xDD, 0xDD, 0xDD)); }));
+                        resetuj_przyciski();
+                        wlaczona_pomoc_glosowa = false;
+                        zatrzymaj_pomoc_glosowa = false;
+                        return;
+                    }
+                }
+                resetuj_przyciski();
+                reader.SpeakAsync("W celu zakupu biletu naciśnij przycisk z ceną pożądanego biletu. Dodatkowe parametry można wybrać w kolejnych oknach dialogowych.");
+                Thread.Sleep(500);
+                przycisk_mruganie(_2x1);
+                while (true)
+                {
+                    if (reader.State == SynthesizerState.Ready)
+                    {
+                        break;
+                    }
+                    if (zatrzymaj_pomoc_glosowa)
+                    {
+                        reader.SpeakAsyncCancelAll();
+                        Dispatcher.BeginInvoke(new Action(() => { pomocGlosowa.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xDD, 0xDD, 0xDD)); }));
+                        resetuj_przyciski();
+                        wlaczona_pomoc_glosowa = false;
+                        zatrzymaj_pomoc_glosowa = false;
+                        return;
+                    }
+                }
+                resetuj_przyciski();
+                reader.SpeakAsync("Jeśli chcesz wrócić do poprzedniego ekranu naciśnij przycisk wstecz.");
+                Thread.Sleep(500);
+                przycisk_mruganie(WsteczButton);
+                while (true)
+                {
+                    if (reader.State == SynthesizerState.Ready)
+                    {
+                        break;
+                    }
+                    if (zatrzymaj_pomoc_glosowa)
+                    {
+                        reader.SpeakAsyncCancelAll();
+                        Dispatcher.BeginInvoke(new Action(() => { pomocGlosowa.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xDD, 0xDD, 0xDD)); }));
+                        resetuj_przyciski();
+                        wlaczona_pomoc_glosowa = false;
+                        zatrzymaj_pomoc_glosowa = false;
+                        return;
+                    }
+                }
+                Dispatcher.BeginInvoke(new Action(() => { pomocGlosowa.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xDD, 0xDD, 0xDD)); }));
+                resetuj_przyciski();
+                wlaczona_pomoc_glosowa = false;
+                zatrzymaj_pomoc_glosowa = false;
+            }
+        }
+
         private void pomocGlosowa_Click(object sender, RoutedEventArgs e)
         {
+            if (!wlaczona_pomoc_glosowa)
+            {
+                thread_pomocGlosowa = new Thread(pomocGlosowa_watek);
+                thread_pomocGlosowa.Start();
+                wlaczona_pomoc_glosowa = true;
+            }
+            else
+            {
+                zatrzymaj_pomoc_glosowa = true;
+            }
+        }
 
+        private void przycisk_mruganie(Button przycisk)
+        {
+            Dispatcher.BeginInvoke(new Action(() => {
+                przycisk.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0x22, 0x64, 0x9C));
+            }));
+        }
+
+        private void resetuj_przyciski()
+        {
+            Dispatcher.BeginInvoke(new Action(() => {
+                _2x1.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xDD, 0xDD, 0xDD));
+                WsteczButton.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0xDD, 0xDD, 0xDD));
+            }));
         }
 
         private void _1x2_Click(object sender, RoutedEventArgs e)

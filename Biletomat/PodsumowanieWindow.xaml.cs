@@ -385,7 +385,7 @@ namespace Biletomat
                     }
                 }
                 resetuj_przyciski();
-                reader.SpeakAsync("W przypadku płatności gotówką należy skorzystać z urządzenia wrzutowego znajdującego się po prawej stronie biletomatu. Po uiszczeniu wymaganej opłaty automat automatycznie rozpocznie proces drukowania biletów. Automat wydaje resztę.");
+                reader.SpeakAsync("W przypadku płatności gotówką należy skorzystać z urządzenia wrzutowego znajdującego się po prawej stronie biletomatu. Po uiszczeniu wymaganej opłaty automat rozpocznie proces drukowania biletów. Biletomat wydaje resztę.");
                 Thread.Sleep(500);
                 while (true)
                 {

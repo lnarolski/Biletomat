@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Biletomat"
         mc:Ignorable="d"
-        Title="DrukowanieBiletowWIndow" Height="300" Width="800" WindowStyle="None">
+        Title="DrukowanieBiletowWIndow" Height="300" Width="800" WindowStyle="None" ResizeMode="NoResize" BorderThickness="5" BorderBrush="#FF22649C">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />

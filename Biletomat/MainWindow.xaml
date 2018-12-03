@@ -31,14 +31,14 @@
         <Image HorizontalAlignment="Left" Height="254" Margin="721,64,0,0" VerticalAlignment="Top" Width="564" Source="images/zkm_logo.jpg"/>
         <Button Name="pomocGlosowa" Margin="1384,64,86,656" Click="pomocGlosowa_Click">
             <StackPanel>
-                <TextBlock FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Width="372" TextAlignment="Center">Pomoc<LineBreak/>Głosowa</TextBlock>
+                <TextBlock FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="372" TextAlignment="Center">Pomoc<LineBreak/>Głosowa</TextBlock>
                 <Image Source="images/speaker.png" Height="200" Width="367" />
             </StackPanel>
         </Button>
         <Button Name="taryfaButton" Click="taryfaButton_Click"  HorizontalAlignment="Left" Margin="86,64,0,0" VerticalAlignment="Top" Width="523" Height="112" FontSize="48">
             <DockPanel>
                 <Image Source="images/info.png" Margin="0,0,40,0" Height="90" Width="100" />
-                <TextBlock TextWrapping="Wrap" FontSize="40">INFORMACJE, REGULAMINY</TextBlock>
+                <TextBlock TextWrapping="Wrap" FontSize="40" VerticalAlignment="Center">INFORMACJE</TextBlock>
             </DockPanel>
         </Button>
     </Grid>

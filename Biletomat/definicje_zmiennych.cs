@@ -2748,7 +2748,7 @@ namespace definicje_zmiennych
             switch (dlugosc_Waznosci)
             {
                 case dlugosc_waznosci.OD_PON_DO_PT:
-                    nazwa_biletu += "od Poniedziałku do Piątku ";
+                    nazwa_biletu += "od poniedziałku do piątku ";
                     break;
                 case dlugosc_waznosci.CALY_TYDZIEN:
                     nazwa_biletu += "na cały tydzień ";

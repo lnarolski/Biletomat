@@ -109,7 +109,7 @@ namespace Biletomat
                     }
                 }
                 resetuj_przyciski();
-                reader.SpeakAsync("W celu zakupu biletu naciskaj przycisk z plusem pożądaną liczbę razy. Aby dodać większą liczbę biletów dotknij i przytrzymaj przycisk ze znakiem plus.");
+                reader.SpeakAsync("W celu zakupu biletu naciśnij przycisk z plusem pożądaną liczbę razy. Aby dodać większą liczbę biletów dotknij i przytrzymaj przycisk ze znakiem plus.");
                 Thread.Sleep(500);
                 przycisk_mruganie(Bilet1_normalny_dodaj);
                 while (true)
